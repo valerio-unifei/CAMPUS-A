@@ -1,24 +1,33 @@
-This is free and unencumbered software released into the public domain.
+TERMO DE LICENÇA PROPRIETÁRIA E USO INTERNO INSTITUCIONAL
 
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
+Copyright (c) 2026 UNIFEI / IESTI. Todos os direitos reservados.
 
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
+1. TITULARIDADE E AMPARO LEGAL
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+Este repositório, incluindo seus códigos-fonte, arquiteturas de agentes de IA, prompts, artefatos de treinamento, documentações e materiais didáticos, é propriedade intelectual exclusiva da Universidade Federal de Itajubá, amparado pela Lei Federal nº 9.610/1998 (Lei de Direitos Autorais) e pela Lei Federal nº 9.609/1998 (Lei de Proteção da Propriedade Intelectual de Programa de Computador).
 
-For more information, please refer to <https://unlicense.org>
+2. ESCOPO DA LICENÇA INTERNA
+
+Concede-se aos servidores públicos, docentes, discentes e colaboradores devidamente autorizados uma licença limitada, não exclusiva, intransferível e revogável para visualizar, clonar, executar e modificar este material exclusivamente para fins de capacitação, pesquisa e desenvolvimento de rotinas administrativas internas da Universidade Federal de Itajubá.
+
+3. RESTRIÇÕES E VEDAÇÕES
+
+É expressamente vedado a qualquer usuário, sob pena de responsabilização civil, administrativa e penal:
+
+A cópia, redistribuição, publicação, alienação ou sublicenciamento deste repositório, no todo ou em parte, fora do ambiente e domínio institucional;
+
+O uso deste código ou de seus componentes para fins comerciais ou por terceiros não vinculados à instituição;
+
+A raspagem de dados (scraping), indexação pública ou utilização do conteúdo para treinamento de modelos de inteligência artificial externos sem autorização formal por escrito da administração universitária.
+
+4. CESSÃO DE CONTRIBUIÇÕES (PULL REQUESTS)
+
+Toda e qualquer modificação, correção, script, prompt ou funcionalidade submetida a este repositório por participantes do curso constitui obra produzida no âmbito funcional/acadêmico, tendo seus direitos patrimoniais cedidos automaticamente e em caráter definitivo e gratuito à UNIFEI.
+
+5. PROTEÇÃO DE DADOS E SEGURANÇA (LGPD)
+
+É terminantemente proibido inserir neste repositório dados pessoais, credenciais de acesso, chaves de API (API Keys), tokens ou bases de dados institucionais sujeitas a sigilo (Lei nº 13.709/2018 - LGPD).
+
+6. ISENÇÃO DE RESPONSABILIDADE (DISCLAIMER)
+
+Os materiais são fornecidos "no estado em que se encontram" (as-is), como objeto de estudo. A instituição não garante a aplicabilidade direta de scripts de teste em ambientes de produção sem a devida validação prévia do setor de Tecnologia da Informação.
