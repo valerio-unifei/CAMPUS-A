@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMPUS-A UNIFEI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://unifei.edu.br/wp-content/uploads/2022/08/cropped-logo-unifei-grande-32x32.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-void: #10161d;
+      --bg-panel: #1a222b;
+      --bg-panel-alt: #151c23;
+      --ink-hi: #eef1f4;
+      --ink-mid: #96a3ae;
+      --ink-dim: #5f6b76;
+      --amber: #d1a054;
+      --teal: #7bb3ba;
+      --rule: #2a333d;
+      --serif: "Source Serif 4", Georgia, serif;
+      --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-void);
+      color: var(--ink-hi);
+      font-family: var(--serif);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--teal);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    .cta:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ---------- Top bar ---------- */
+    .topbar {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .topbar .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 22px;
+      padding-bottom: 22px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ink-mid);
+    }
+
+    .topbar .mark {
+      color: var(--ink-hi);
+      font-weight: 600;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 64px 0 56px;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      margin: 0 0 22px;
+      max-width: 15ch;
+    }
+
+    .hero .lede {
+      font-size: 19px;
+      color: var(--ink-mid);
+      max-width: 56ch;
+      margin: 0 0 40px;
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    @media (max-width:760px) {
+      .panels {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--bg-panel);
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--rule);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-dim);
+      background: var(--bg-panel-alt);
+    }
+
+    .panel-head .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--rule);
+    }
+
+    /* norm document panel */
+    .doc-panel .panel-body {
+      padding: 22px 24px 26px;
+      font-family: var(--serif);
+    }
+
+    .doc-panel .art {
+      color: var(--amber);
+      font-weight: 600;
+      margin: 0 0 6px;
+    }
+
+    .doc-panel p {
+      margin: 0 0 14px;
+      color: var(--ink-hi);
+      font-size: 15px;
+    }
+
+    .doc-panel p.par {
+      color: var(--ink-mid);
+      font-size: 14px;
+      padding-left: 18px;
+      border-left: 2px solid var(--rule);
+    }
+
+    /* code editor panel */
+    .code-panel .panel-body {
+      padding: 20px 0 22px;
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    .code-panel pre {
+      margin: 0;
+      padding: 0 22px;
+      white-space: pre-wrap;
+      color: var(--ink-mid);
+    }
+
+    .code-panel .ln {
+      color: var(--ink-dim);
+      display: inline-block;
+      width: 24px;
+    }
+
+    .code-panel .kw {
+      color: var(--teal);
+    }
+
+    .code-panel .str {
+      color: var(--amber);
+    }
+
+    .code-panel .ghost {
+      color: var(--ink-dim);
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    /* ---------- Stats strip ---------- */
+    .stats {
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .stats .wrap {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      flex: 1 1 160px;
+      padding: 22px 24px;
+      font-family: var(--mono);
+      border-left: 1px solid var(--rule);
+    }
+
+    .stat:first-child {
+      border-left: none;
+    }
+
+    .stat .n {
+      display: block;
+      font-size: 26px;
+      color: var(--ink-hi);
+      margin-bottom: 4px;
+    }
+
+    .stat .l {
+      font-size: 12.5px;
+      color: var(--ink-mid);
+    }
+
+    /* ---------- Section shared ---------- */
+    section.block {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section.block:last-of-type {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 28px;
+      margin: 0 0 10px;
+      max-width: 24ch;
+    }
+
+    .kicker {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--ink-dim);
+      margin: 0 0 8px;
+    }
+
+    .lead {
+      color: var(--ink-mid);
+      font-size: 16px;
+      max-width: 62ch;
+      margin: 0 0 34px;
+    }
+
+    /* ---------- Why Copilot/Codespaces ---------- */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width:760px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .why-item h3 {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--amber);
+      margin: 0 0 10px;
+      font-weight: 500;
+    }
+
+    .why-item p {
+      color: var(--ink-mid);
+      font-size: 15px;
+      margin: 0;
+      max-width: 48ch;
+    }
+
+    /* ---------- Programa (timeline) ---------- */
+    .level-group {
+      margin-bottom: 8px;
+    }
+
+    .level-label {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin: 38px 0 4px;
+    }
+
+    .level-group:first-of-type .level-label {
+      margin-top: 0;
+    }
+
+    .level-label .tag {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 0.02em;
+      padding: 3px 8px;
+      border-radius: 3px;
+      border: 1px solid var(--rule);
+      color: var(--ink-hi);
+    }
+
+    .tag.basico {
+      color: #9fd0a0;
+      border-color: #3a4a3c;
+    }
+
+    .tag.medio {
+      color: var(--teal);
+      border-color: #2f4a4d;
+    }
+
+    .tag.avancado {
+      color: var(--amber);
+      border-color: #4a3f2a;
+    }
+
+    .level-label .lname {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ink-mid);
+    }
+
+    .day {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .day .num {
+      font-family: var(--mono);
+      color: var(--ink-dim);
+      font-size: 13px;
+      padding-top: 2px;
+    }
+
+    .day .content h3 {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 6px;
+      color: var(--ink-hi);
+    }
+
+    .day .content p {
+      margin: 0 0 10px;
+      color: var(--ink-mid);
+      font-size: 14.5px;
+      max-width: 64ch;
+    }
+
+    .day .cs {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-dim);
+    }
+
+    .day .cs .name {
+      color: var(--teal);
+    }
+
+    /* ---------- Final project banner ---------- */
+    .final {
+      background: var(--bg-panel);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 34px 32px;
+    }
+
+    .final .kicker {
+      margin-bottom: 14px;
+    }
+
+    .final ul {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .final li {
+      font-size: 14.5px;
+      color: var(--ink-mid);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .final li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      background: var(--amber);
+      border-radius: 50%;
+    }
+
+    /* ---------- Footer / CTA ---------- */
+    footer {
+      padding: 56px 0 60px;
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (max-width:760px) {
+      .foot-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .foot-grid h3 {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ink-dim);
+      margin: 0 0 12px;
+    }
+
+    .foot-grid p,
+    .foot-grid li {
+      color: var(--ink-mid);
+      font-size: 14.5px;
+    }
+
+    .foot-grid ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .foot-grid li {
+      margin-bottom: 6px;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 22px;
+      background: var(--amber);
+      color: #1a1305;
+      font-family: var(--mono);
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .cta:hover {
+      filter: brightness(1.08);
+    }
+
+    .fineprint {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-dim);
+      max-width: 70ch;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <span class="mark">UNIFEI · IESTI</span>
+      <span>21h · 6 dias · remoto síncrono via Google Meet</span>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="kicker">curso de formação continuada</p>
+      <h1>CAMPUS-A</h1>
+      <p class="lede">
+        Capacitação em Agentes e Modelos de Processos
+        na Universidade e Setor Administrativo
+      </p>
+
+      <div class="panels">
+        <!-- Painel 1: Captura e Transcrição de Áudio ao Vivo (CEPEAd / UNIFEI) -->
+        <div class="panel doc-panel">
+          <div class="panel-head">
+            <span class="dot recording"></span> reuniao_cepead_unifei.stream — Transcrição ao Vivo
+          </div>
+          <div class="panel-body">
+            <div class="status-bar">
+              <span class="badge-live">🔴 CAPTURANDO ÁUDIO</span>
+              <span class="meeting-title">Sessão Ordinária CEPEAd / UNIFEI</span>
+            </div>
+
+            <div class="transcript-stream">
+              <p class="speech-entry">
+                <span class="time">[14:02]</span> <strong>Presidente:</strong>
+                "Havendo quórum regimental, declaramos aberta a reunião do CEPEAd da UNIFEI."
+              </p>
+              <p class="speech-entry">
+                <span class="time">[14:05]</span> <strong>Relator:</strong>
+                "Em discussão o parecer sobre a reformulação do Projeto Pedagógico de Curso..."
+              </p>
+              <p class="speech-entry ghost-text">
+                <em>[Processando áudio do microfone principal...]</em>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 2: Processamento e Geração da ATA -->
+        <div class="panel code-panel">
+          <div class="panel-head"><span class="dot"></span> transcrever_e_gerar_ata.py</div>
+          <div class="panel-body">
+            <pre><span class="ln">1</span><span class="kw">import</span> speech_recognizer, llm_unifei
+<span class="ln">2</span>
+<span class="ln">3</span><span class="kw">def</span> processar_reuniao_cepead(stream_audio):
+<span class="ln">4</span>    <span class="comment"># 1. Captura e transcrição do áudio da reunião</span>
+<span class="ln">5</span>    texto_bruto = speech_recognizer.transcrever(stream_audio)
+<span class="ln">6</span>    
+<span class="ln">7</span>    <span class="comment"># 2. Resumo estruturado para a Ata Oficial da UNIFEI</span>
+<span class="ln">8</span>    ata_gerada = llm_unifei.gerar_ata(
+<span class="ln">9</span>        transcricao=texto_bruto,
+<span class="ln">10</span>        orgao=<span class="str">"CEPEAd - UNIFEI"</span>,
+<span class="ln">11</span>        extrair=[<span class="str">"pautas"</span>, <span class="str">"deliberacoes"</span>, <span class="str">"votacoes"</span>]
+<span class="ln">12</span>    )
+<span class="ln">13</span>    <span class="kw">return</span> ata_gerada
+<span class="ln">14</span>
+<span class="ln">15</span><span class="ghost">    # Copilot sugere: Salvar minuta da ATA em formato PDF/A oficial</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><span class="n">21h</span><span class="l">carga horária total</span></div>
+      <div class="stat"><span class="n">6</span><span class="l">dias de curso</span></div>
+      <div class="stat"><span class="n">3h30</span><span class="l">por dia</span></div>
+      <div class="stat"><span class="n">3</span><span class="l">níveis: básico, médio, avançado</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="ferramentas">
+    <div class="wrap">
+      <p class="kicker">metodologia</p>
+      <h2>Por que GitHub Copilot e Codespaces</h2>
+      <p class="lead">
+        O curso ensina a construir agentes de IA usando, ele mesmo, um agente de IA como
+        ferramenta de trabalho — para que a turma sinta na prática os benefícios e os
+        limites de programar com assistência de IA antes de projetar essa experiência
+        para os servidores da universidade.
+      </p>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <h3>codespaces — ambiente sem instalação</h3>
+          <p>
+            Cada dia do curso é entregue como um Codespace pré-configurado: o material,
+            as bibliotecas e a base normativa de exemplo já estão prontos. Servidores sem
+            experiência prévia com ambientes de desenvolvimento começam a codificar em
+            poucos minutos, direto do navegador, sem instalar nada na máquina local.
+          </p>
+        </div>
+        <div class="why-item">
+          <h3>copilot — par de programação</h3>
+          <p>
+            O Copilot ajuda a escrever o código do agente (extração de PDFs, chunking por
+            artigo, integração com a base vetorial), enquanto a turma pratica revisar
+            criticamente cada sugestão — o mesmo hábito de verificação que o agente
+            final precisará impor a si mesmo diante de uma norma.
+          </p>
+        </div>
+        <div class="why-item">
+          <h3>um devcontainer por nível</h3>
+          <p>
+            Básico, médio e avançado têm devcontainers próprios, cada um adicionando as
+            bibliotecas do estágio seguinte — a complexidade técnica cresce junto com a
+            complexidade normativa tratada em cada nível.
+          </p>
+        </div>
+        <div class="why-item">
+          <h3>histórico versionado</h3>
+          <p>
+            Cada exercício é salvo como commit no repositório do participante. Ao final
+            do curso, o histórico do Codespace é, ele mesmo, um registro do raciocínio
+            seguido — o mesmo princípio de rastreabilidade exigido de um agente
+            institucional.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="programa">
+    <div class="wrap">
+      <p class="kicker">programa</p>
+      <h2>Seis dias, três níveis</h2>
+      <p class="lead">
+        Cada dia parte de um Codespace próprio. A complexidade do código e das normas
+        tratadas cresce do dia 1 ao dia 6.
+      </p>
+
+      <div class="level-group">
+        <div class="level-label">
+          <span class="tag basico">básico</span>
+          <span class="lname">fundamentos e panorama normativo</span>
+        </div>
+
+        <div class="day">
+          <span class="num">01</span>
+          <div class="content">
+            <h3>Fundamentos de agentes de IA</h3>
+            <p>O que diferencia um chatbot de um agente com ferramentas; por que RAG é o
+              ponto de partida para o domínio normativo. Prática: comparar uma resposta
+              sem contexto normativo com uma resposta ancorada em um trecho real de
+              Regimento.</p>
+            <span class="cs">codespace: <span class="name">dia-01-fundamentos</span></span>
+          </div>
+        </div>
+
+        <div class="day">
+          <span class="num">02</span>
+          <div class="content">
+            <h3>Panorama normativo e mapeamento de processos</h3>
+            <p>Hierarquia entre Estatuto, Regimento Geral, Regimentos de Conselhos e
+              Resoluções. Prática: classificar documentos reais da universidade e mapear
+              processos candidatos à automação num notebook compartilhado.</p>
+            <span class="cs">codespace: <span class="name">dia-02-normas</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="level-group">
+        <div class="level-label">
+          <span class="tag medio">médio</span>
+          <span class="lname">arquitetura e base de conhecimento</span>
+        </div>
+
+        <div class="day">
+          <span class="num">03</span>
+          <div class="content">
+            <h3>Arquitetura de agentes para o setor público</h3>
+            <p>Padrão RAG institucional, roteador de subagentes por domínio e guardrails
+              essenciais. Prática: desenhar, no próprio Codespace, o diagrama de
+              arquitetura de um agente para um conselho real.</p>
+            <span class="cs">codespace: <span class="name">dia-03-arquitetura</span></span>
+          </div>
+        </div>
+
+        <div class="day">
+          <span class="num">04</span>
+          <div class="content">
+            <h3>Construção da base de conhecimento normativa</h3>
+            <p>Chunking por artigo e parágrafo, metadados de vigência, versionamento de
+              normas. Prática: com o Copilot, escrever o parser que transforma um PDF de
+              Resolução em registros estruturados.</p>
+            <span class="cs">codespace: <span class="name">dia-04-base-conhecimento</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="level-group">
+        <div class="level-label">
+          <span class="tag avancado">avançado</span>
+          <span class="lname">construção, governança e entrega</span>
+        </div>
+
+        <div class="day">
+          <span class="num">05</span>
+          <div class="content">
+            <h3>Desenvolvimento prático de um agente institucional</h3>
+            <p>Implementação do RAG, geração de minutas de ata, checagem de quórum e
+              checklist de prazos. Prática: protótipo funcional respondendo perguntas
+              normativas reais, com citação de fonte.</p>
+            <span class="cs">codespace: <span class="name">dia-05-prototipo</span></span>
+          </div>
+        </div>
+
+        <div class="day">
+          <span class="num">06</span>
+          <div class="content">
+            <h3>Governança, avaliação e projeto final</h3>
+            <p>LGPD, LAI, accountability e trilha de auditoria; metodologia de teste com
+              gabarito validado por especialistas. Encerramento com a apresentação do
+              projeto final de cada participante.</p>
+            <span class="cs">codespace: <span class="name">dia-06-governanca</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projeto-final">
+    <div class="wrap">
+      <p class="kicker">entrega</p>
+      <h2>Projeto final</h2>
+      <div class="final">
+        <p class="kicker">apresentado no dia 6, a partir do repositório construído ao longo do curso</p>
+        <p class="lead" style="margin-bottom:0;">
+          Cada participante ou grupo entrega um agente para um órgão real da universidade,
+          versionado no próprio Codespace:
+        </p>
+        <ul>
+          <li>Escopo do agente e processo(s) automatizado(s), com justificativa</li>
+          <li>Diagrama de arquitetura com guardrails e ponto de validação humana</li>
+          <li>Amostra da base de conhecimento com metadados de vigência</li>
+          <li>Protótipo respondendo perguntas reais com citação de fonte normativa</li>
+          <li>Checklist de governança (LGPD, LAI, accountability) aplicado ao agente</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <h3>pré-requisitos</h3>
+          <ul>
+            <li>Lógica de programação básica (Python é bem-vindo, mas não obrigatório)</li>
+            <li>Conta GitHub para acesso ao Codespace de cada dia</li>
+            <li>Familiaridade com processos administrativos da universidade</li>
+          </ul>
+        </div>
+        <!-- <div>
+          <h3>inscrições</h3>
+          <p>Vagas limitadas por turma, priorizando um representante por órgão colegiado
+            ou secretaria administrativa.</p>
+          <a class="cta" href="#" onclick="return false;">Solicitar inscrição</a>
+        </div> -->
+      </div>
+
+      <p class="fineprint">
+        Curso desenvolvido com base na estrutura normativa da UNIFEI (Estatuto, Regimento
+        Geral e Resoluções dos Conselhos Superiores). </br>GitHub, Copilot e Codespaces são
+        marcas de seus respectivos titulares, mencionadas aqui apenas como ferramentas
+        didáticas do curso.
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
