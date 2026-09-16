@@ -1,785 +1,952 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CAMPUS-A UNIFEI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" sizes="32x32"
-    href="https://unifei.edu.br/wp-content/uploads/2022/08/cropped-logo-unifei-grande-32x32.png">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --bg-void: #10161d;
-      --bg-panel: #1a222b;
-      --bg-panel-alt: #151c23;
-      --ink-hi: #eef1f4;
-      --ink-mid: #96a3ae;
-      --ink-dim: #5f6b76;
-      --amber: #d1a054;
-      --teal: #7bb3ba;
-      --rule: #2a333d;
-      --serif: "Source Serif 4", Georgia, serif;
-      --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      * {
-        animation: none !important;
-        transition: none !important;
-      }
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg-void);
-      color: var(--ink-hi);
-      font-family: var(--serif);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--teal);
-    }
-
-    a:focus-visible,
-    button:focus-visible,
-    .cta:focus-visible {
-      outline: 2px solid var(--amber);
-      outline-offset: 3px;
-    }
-
-    .wrap {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-
-    /* ---------- Top bar ---------- */
-    .topbar {
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .topbar .wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 22px;
-      padding-bottom: 22px;
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--ink-mid);
-    }
-
-    .topbar .mark {
-      color: var(--ink-hi);
-      font-weight: 600;
-    }
-
-    /* ---------- Hero ---------- */
-    .hero {
-      padding: 64px 0 56px;
-    }
-
-    .hero h1 {
-      font-family: var(--serif);
-      font-weight: 600;
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.12;
-      letter-spacing: -0.01em;
-      margin: 0 0 22px;
-      max-width: 15ch;
-    }
-
-    .hero .lede {
-      font-size: 19px;
-      color: var(--ink-mid);
-      max-width: 56ch;
-      margin: 0 0 40px;
-    }
-
-    .panels {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    @media (max-width:760px) {
-      .panels {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .panel {
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      overflow: hidden;
-      background: var(--bg-panel);
-    }
-
-    .panel-head {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--rule);
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--ink-dim);
-      background: var(--bg-panel-alt);
-    }
-
-    .panel-head .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--rule);
-    }
-
-    /* norm document panel */
-    .doc-panel .panel-body {
-      padding: 22px 24px 26px;
-      font-family: var(--serif);
-    }
-
-    .doc-panel .art {
-      color: var(--amber);
-      font-weight: 600;
-      margin: 0 0 6px;
-    }
-
-    .doc-panel p {
-      margin: 0 0 14px;
-      color: var(--ink-hi);
-      font-size: 15px;
-    }
-
-    .doc-panel p.par {
-      color: var(--ink-mid);
-      font-size: 14px;
-      padding-left: 18px;
-      border-left: 2px solid var(--rule);
-    }
-
-    /* code editor panel */
-    .code-panel .panel-body {
-      padding: 20px 0 22px;
-      font-family: var(--mono);
-      font-size: 13px;
-    }
-
-    .code-panel pre {
-      margin: 0;
-      padding: 0 22px;
-      white-space: pre-wrap;
-      color: var(--ink-mid);
-    }
-
-    .code-panel .ln {
-      color: var(--ink-dim);
-      display: inline-block;
-      width: 24px;
-    }
-
-    .code-panel .kw {
-      color: var(--teal);
-    }
-
-    .code-panel .str {
-      color: var(--amber);
-    }
-
-    .code-panel .ghost {
-      color: var(--ink-dim);
-      font-style: italic;
-      opacity: 0.85;
-    }
-
-    /* ---------- Stats strip ---------- */
-    .stats {
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .stats .wrap {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      flex: 1 1 160px;
-      padding: 22px 24px;
-      font-family: var(--mono);
-      border-left: 1px solid var(--rule);
-    }
-
-    .stat:first-child {
-      border-left: none;
-    }
-
-    .stat .n {
-      display: block;
-      font-size: 26px;
-      color: var(--ink-hi);
-      margin-bottom: 4px;
-    }
-
-    .stat .l {
-      font-size: 12.5px;
-      color: var(--ink-mid);
-    }
-
-    /* ---------- Section shared ---------- */
-    section.block {
-      padding: 64px 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    section.block:last-of-type {
-      border-bottom: none;
-    }
-
-    h2 {
-      font-family: var(--serif);
-      font-weight: 600;
-      font-size: 28px;
-      margin: 0 0 10px;
-      max-width: 24ch;
-    }
-
-    .kicker {
-      font-family: var(--mono);
-      font-size: 12.5px;
-      color: var(--ink-dim);
-      margin: 0 0 8px;
-    }
-
-    .lead {
-      color: var(--ink-mid);
-      font-size: 16px;
-      max-width: 62ch;
-      margin: 0 0 34px;
-    }
-
-    /* ---------- Why Copilot/Codespaces ---------- */
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-
-    @media (max-width:760px) {
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .why-item h3 {
-      font-family: var(--mono);
-      font-size: 14px;
-      color: var(--amber);
-      margin: 0 0 10px;
-      font-weight: 500;
-    }
-
-    .why-item p {
-      color: var(--ink-mid);
-      font-size: 15px;
-      margin: 0;
-      max-width: 48ch;
-    }
-
-    /* ---------- Programa (timeline) ---------- */
-    .level-group {
-      margin-bottom: 8px;
-    }
-
-    .level-label {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin: 38px 0 4px;
-    }
-
-    .level-group:first-of-type .level-label {
-      margin-top: 0;
-    }
-
-    .level-label .tag {
-      font-family: var(--mono);
-      font-size: 11.5px;
-      letter-spacing: 0.02em;
-      padding: 3px 8px;
-      border-radius: 3px;
-      border: 1px solid var(--rule);
-      color: var(--ink-hi);
-    }
-
-    .tag.basico {
-      color: #9fd0a0;
-      border-color: #3a4a3c;
-    }
-
-    .tag.medio {
-      color: var(--teal);
-      border-color: #2f4a4d;
-    }
-
-    .tag.avancado {
-      color: var(--amber);
-      border-color: #4a3f2a;
-    }
-
-    .level-label .lname {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--ink-mid);
-    }
-
-    .day {
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 18px;
-      padding: 18px 0;
-      border-top: 1px solid var(--rule);
-    }
-
-    .day .num {
-      font-family: var(--mono);
-      color: var(--ink-dim);
-      font-size: 13px;
-      padding-top: 2px;
-    }
-
-    .day .content h3 {
-      font-family: var(--serif);
-      font-size: 18px;
-      font-weight: 600;
-      margin: 0 0 6px;
-      color: var(--ink-hi);
-    }
-
-    .day .content p {
-      margin: 0 0 10px;
-      color: var(--ink-mid);
-      font-size: 14.5px;
-      max-width: 64ch;
-    }
-
-    .day .cs {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--ink-dim);
-    }
-
-    .day .cs .name {
-      color: var(--teal);
-    }
-
-    /* ---------- Final project banner ---------- */
-    .final {
-      background: var(--bg-panel);
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      padding: 34px 32px;
-    }
-
-    .final .kicker {
-      margin-bottom: 14px;
-    }
-
-    .final ul {
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .final li {
-      font-size: 14.5px;
-      color: var(--ink-mid);
-      padding-left: 20px;
-      position: relative;
-    }
-
-    .final li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 6px;
-      height: 6px;
-      background: var(--amber);
-      border-radius: 50%;
-    }
-
-    /* ---------- Footer / CTA ---------- */
-    footer {
-      padding: 56px 0 60px;
-    }
-
-    .foot-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-
-    @media (max-width:760px) {
-      .foot-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .foot-grid h3 {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--ink-dim);
-      margin: 0 0 12px;
-    }
-
-    .foot-grid p,
-    .foot-grid li {
-      color: var(--ink-mid);
-      font-size: 14.5px;
-    }
-
-    .foot-grid ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    .foot-grid li {
-      margin-bottom: 6px;
-    }
-
-    .cta {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 22px;
-      background: var(--amber);
-      color: #1a1305;
-      font-family: var(--mono);
-      font-size: 13.5px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .cta:hover {
-      filter: brightness(1.08);
-    }
-
-    .fineprint {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--rule);
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--ink-dim);
-      max-width: 70ch;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMPUS-A UNIFEI</title>
+    <link rel="icon" type="image/png" href="https://unifei.edu.br/wp-content/uploads/2022/08/cropped-logo-unifei-grande-32x32.png">
+    
+    <!-- External Dependencies: Tailwind CSS, FontAwesome, Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        unifei: {
+                            DEFAULT: '#003366',
+                            dark: '#002244',
+                            light: '#004c99',
+                            accent: '#00a3e0'
+                        },
+                        tech: {
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            indigo: '#6366f1',
+                            purple: '#8b5cf6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient-unifei {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #22d3ee 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.3);
+        }
+        .glow-unifei {
+            box-shadow: 0 0 50px -15px rgba(0, 51, 102, 0.6);
+        }
+    </style>
 </head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden min-h-screen flex flex-col">
 
-<body>
+    <!-- Sticky Glass Header -->
+    <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo & Title -->
+                <a href="#" class="flex items-center gap-3.5 group">
+                    <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-tr from-[#003366] to-cyan-600 p-0.5 shadow-lg group-hover:scale-105 transition-transform duration-300">
+                        <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+                            <img src="https://unifei.edu.br/wp-content/uploads/2022/08/cropped-logo-unifei-grande-32x32.png" alt="UNIFEI Logo" class="w-7 h-7 object-contain">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-display font-black text-xl tracking-tight text-white group-hover:text-cyan-400 transition-colors">CAMPUS-A</span>
+                            <span class="px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase bg-cyan-950/80 text-cyan-400 border border-cyan-800/50 rounded-full">UNIFEI</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 font-medium tracking-wide">Agentes & Processos com IA</p>
+                    </div>
+                </a>
 
-  <div class="topbar">
-    <div class="wrap">
-      <span class="mark">UNIFEI · IESTI</span>
-      <span>21h · 6 dias · remoto síncrono via Google Meet</span>
-    </div>
-  </div>
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-medium">
+                    <a href="#sobre" class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors">Sobre</a>
+                    <a href="#objetivos" class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors">Objetivos</a>
+                    <a href="#cronograma" class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors">Cronograma</a>
+                    <a href="#stack" class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors">Stack Low-Code</a>
+                    <a href="#governanca" class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors">Governança & LGPD</a>
+                    <a href="https://github.com/valerio-unifei/CAMPUS-A" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors inline-flex items-center gap-1.5">
+                        <i class="fa-brands fa-github text-base"></i>
+                        
+                    </a>
+                </nav>
 
-  <header class="hero">
-    <div class="wrap">
-      <p class="kicker">curso de formação continuada</p>
-      <h1>CAMPUS-A</h1>
-      <p class="lede">
-        Capacitação em Agentes e Modelos de Processos
-        na Universidade e Setor Administrativo
-      </p>
+                <!-- Header Actions -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <button onclick="openEnrollmentModal()" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-semibold rounded-xl group bg-gradient-to-br from-cyan-500 via-indigo-500 to-emerald-500 group-hover:from-cyan-500 group-hover:to-emerald-500 hover:text-white text-white shadow-lg shadow-cyan-500/20 active:scale-95 transition-all">
+                        <span class="relative px-4 py-2.5 transition-all ease-in duration-75 bg-slate-900 rounded-[10px] group-hover:bg-opacity-0 flex items-center gap-2">
+                            <i class="fa-solid fa-graduation-cap text-cyan-400 group-hover:text-white transition-colors"></i>
+                            <span>Saiba Mais</span>
+                        </span>
+                    </button>
+                </div>
 
-      <div class="panels">
-        <!-- Painel 1: Captura e Transcrição de Áudio ao Vivo (CEPEAd / UNIFEI) -->
-        <div class="panel doc-panel">
-          <div class="panel-head">
-            <span class="dot recording"></span> reuniao_cepead_unifei.stream — Transcrição ao Vivo
-          </div>
-          <div class="panel-body">
-            <div class="status-bar">
-              <span class="badge-live">🔴 CAPTURANDO ÁUDIO</span>
-              <span class="meeting-title">Sessão Ordinária CEPEAd / UNIFEI</span>
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden">
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle Menu">
+                        <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-slate-900/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2">
+            <a href="#sobre" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Sobre o Programa</a>
+            <a href="#objetivos" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Objetivos do Curso</a>
+            <a href="#cronograma" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Cronograma (6 Dias)</a>
+            <a href="#stack" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Stack Tecnológica</a>
+            <a href="#governanca" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Governança & LGPD</a>
+            <div class="pt-4 border-t border-slate-800">
+                <button onclick="toggleMobileMenu(); openEnrollmentModal();" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 font-semibold text-white text-center shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Informações</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="sobre" class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden bg-grid-pattern">
+            <!-- Glowing background accents -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#003366] via-cyan-900/30 to-indigo-900/30 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+            <div class="absolute top-10 right-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-[90px] -z-10 pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-4xl mx-auto">
+                    
+                    <!-- Institutional Badges Row -->
+                    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-[#003366]/80 text-cyan-200 border border-cyan-500/30 shadow-sm backdrop-blur-md">
+                            <i class="fa-solid fa-clock text-cyan-400"></i>
+                            Carga Horária: 21 Horas (Mini-Curso)
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 shadow-sm backdrop-blur-md">
+                            <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                            Conformidade LGPD Pública
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-950/80 text-indigo-300 border border-indigo-500/30 shadow-sm backdrop-blur-md">
+                            <i class="fa-solid fa-cubes text-indigo-400"></i>
+                            Low-Code: Gemini Gems • Notebooks • Antigravity
+                        </span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-6">
+                        Capacitação em Agentes & Modelos de Processos na <span class="text-gradient-unifei">Universidade Pública</span>
+                    </h1>
+
+                    <!-- Paragraph description -->
+                    <p class="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal mb-10 max-w-3xl mx-auto">
+                        O programa <strong class="text-white font-semibold">CAMPUS-A</strong> é uma formação prática e aplicada projetada para capacitar servidores técnicos administrativos, docentes e discentes a transformar a gestão universitária utilizando <span class="text-cyan-400 font-medium">Agentes Autônomos de IA</span>, <span class="text-emerald-400 font-medium">RAG Normativo Ancorado</span> e plataformas de automação low-code.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button onclick="openEnrollmentModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-emerald-500 text-white font-bold text-base shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 group">
+                            <span>Saiba Mais</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        <a href="#cronograma" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold text-base border border-slate-700/80 hover:border-slate-500 hover:bg-slate-800/80 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-calendar-check text-cyan-400"></i>
+                            <span>Ver Cronograma (6 Dias)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Metric Cards / Highlights -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="glass-panel p-5 rounded-2xl border border-slate-800 text-center hover:border-slate-700 transition-all">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-cyan-950/80 border border-cyan-800/50 flex items-center justify-center text-cyan-400">
+                            <i class="fa-solid fa-clock-rotate-left text-lg"></i>
+                        </div>
+                        <div class="font-display text-2xl sm:text-3xl font-extrabold text-white">21h</div>
+                        <div class="text-xs text-slate-400 font-medium mt-1">6 Encontros de 3h30min</div>
+                    </div>
+
+                    <div class="glass-panel p-5 rounded-2xl border border-slate-800 text-center hover:border-slate-700 transition-all">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-emerald-950/80 border border-emerald-800/50 flex items-center justify-center text-emerald-400">
+                            <i class="fa-solid fa-scale-balanced text-lg"></i>
+                        </div>
+                        <div class="font-display text-2xl sm:text-3xl font-extrabold text-white">100%</div>
+                        <div class="text-xs text-slate-400 font-medium mt-1">Conformidade LGPD e LAI</div>
+                    </div>
+
+                    <div class="glass-panel p-5 rounded-2xl border border-slate-800 text-center hover:border-slate-700 transition-all">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-indigo-950/80 border border-indigo-800/50 flex items-center justify-center text-indigo-400">
+                            <i class="fa-solid fa-robot text-lg"></i>
+                        </div>
+                        <div class="font-display text-2xl sm:text-3xl font-extrabold text-white">Multi-Agente</div>
+                        <div class="text-xs text-slate-400 font-medium mt-1">Orquestração Low-Code</div>
+                    </div>
+
+                    <div class="glass-panel p-5 rounded-2xl border border-slate-800 text-center hover:border-slate-700 transition-all">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-purple-950/80 border border-purple-800/50 flex items-center justify-center text-purple-400">
+                            <i class="fa-solid fa-certificate text-lg"></i>
+                        </div>
+                        <div class="font-display text-2xl sm:text-3xl font-extrabold text-white">UNIFEI</div>
+                        <div class="text-xs text-slate-400 font-medium mt-1">Certificação Oficial IESTI</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objectives Section -->
+        <section id="objetivos" class="py-20 relative bg-slate-900/60 border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-cyan-400 font-semibold text-sm tracking-wider uppercase bg-cyan-950/60 px-3.5 py-1.5 rounded-full border border-cyan-800/40">Pilares Estratégicos</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-4">Objetivos do Programa CAMPUS-A</h2>
+                    <p class="text-slate-400 text-base mt-3">Uma abordagem estruturada para modernizar a gestão administrativa com inteligência artificial ética, segura e focada em resultados públicos.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Pillar 1 -->
+                    <div class="glass-panel p-7 rounded-2xl border border-slate-800 hover:border-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/5 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all">
+                            <i class="fa-solid fa-sitemap"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-white mb-3">1. Mapear Processos Administrativos</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Identificação precisa de gargalos em tramitações universitárias (solicitações discentes, aprovações de crédito, emissão de pareceres e licitações) para desenhar fluxos eficientes impulsionados por IA.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="glass-panel p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/5 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl mb-6 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-white mb-3">2. Agentes RAG Normativos</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Indexação vetorial avançada de estatutos, regimentos internos e resoluções institucionais em Gemini Notebooks para obter respostas 100% ancoradas e sem alucinações.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="glass-panel p-7 rounded-2xl border border-slate-800 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl mb-6 group-hover:scale-110 group-hover:bg-indigo-500 group-hover:text-slate-950 transition-all">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-white mb-3">3. Orquestração Multi-Agente</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Conexão em esteira automatizada entre agentes triadores, pareceristas e notificadores via webhooks e REST APIs em ecossistemas low-code/no-code com Antigravity.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="glass-panel p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/5 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl mb-6 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-white mb-3">4. Governança Pública & LGPD</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Mecanismos rigorosos de proteção de dados sensíveis de discentes e servidores com total rastreabilidade, anonimização automática de IIP e transparência algorítmica.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 5 -->
+                    <div class="glass-panel p-7 rounded-2xl border border-slate-800 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/5 transition-all group md:col-span-2 lg:col-span-2">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-xl mb-6 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-slate-950 transition-all">
+                            <i class="fa-solid fa-compass-drafting"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-white mb-3">5. Aplicar o Framework A.G.E.N.T</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Metodologia autoral e estruturada para gerenciar a transformação cultural e a adoção responsável de Inteligência Artificial em reitorias, pró-reitorias, secretarias e coordenações de curso.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Schedule Section -->
+        <section id="cronograma" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                    <div>
+                        <span class="text-emerald-400 font-semibold text-sm tracking-wider uppercase bg-emerald-950/60 px-3.5 py-1.5 rounded-full border border-emerald-800/40">Estrutura Curricular</span>
+                        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-4">Cronograma Detalhado do Curso</h2>
+                        <p class="text-slate-400 text-base mt-2">21 Horas de Imersão • 6 Encontros Teórico-Práticos de 3h30min</p>
+                    </div>
+
+                    <!-- Search / Filter Input for Schedule -->
+                    <div class="w-full md:w-80 relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="text" id="scheduleSearch" oninput="filterSchedule()" placeholder="Filtrar tópico, RAG, LGPD..." class="w-full pl-10 pr-4 py-2.5 bg-slate-900/90 border border-slate-700/80 rounded-xl text-slate-200 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all">
+                    </div>
+                </div>
+
+                <!-- Day Selector Tabs -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar scroll-smooth" id="dayTabsContainer">
+                    <button onclick="selectDay(1)" id="tab-day-1" class="tab-btn px-5 py-3 rounded-xl font-medium text-sm whitespace-nowrap transition-all bg-cyan-600 text-white shadow-lg shadow-cyan-600/20 border border-cyan-400/30 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center font-bold text-xs">01</span>
+                        <span>Dia 1: LLMs & Agentic AI</span>
+                    </button>
+                    <button onclick="selectDay(2)" id="tab-day-2" class="tab-btn px-5 py-3 rounded-xl font-medium text-sm whitespace-nowrap transition-all bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 border border-slate-800 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-xs">02</span>
+                        <span>Dia 2: Mapeamento & Canvas</span>
+                    </button>
+                    <button onclick="selectDay(3)" id="tab-day-3" class="tab-btn px-5 py-3 rounded-xl font-medium text-sm whitespace-nowrap transition-all bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 border border-slate-800 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-xs">03</span>
+                        <span>Dia 3: RAG & Normativas</span>
+                    </button>
+                    <button onclick="selectDay(4)" id="tab-day-4" class="tab-btn px-5 py-3 rounded-xl font-medium text-sm whitespace-nowrap transition-all bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 border border-slate-800 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-xs">04</span>
+                        <span>Dia 4: Multi-Agentes & APIs</span>
+                    </button>
+                    <button onclick="selectDay(5)" id="tab-day-5" class="tab-btn px-5 py-3 rounded-xl font-medium text-sm whitespace-nowrap transition-all bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 border border-slate-800 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-xs">05</span>
+                        <span>Dia 5: Governança & LGPD</span>
+                    </button>
+                    <button onclick="selectDay(6)" id="tab-day-6" class="tab-btn px-5 py-3 rounded-xl font-medium text-sm whitespace-nowrap transition-all bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 border border-slate-800 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-xs">06</span>
+                        <span>Dia 6: Modelo I.O.A. & Pitch</span>
+                    </button>
+                </div>
+
+                <!-- Active Schedule Cards Container -->
+                <div id="scheduleCardsContainer" class="space-y-6">
+                    <!-- Cards will be populated by JS for active tab / search result -->
+                </div>
+
+                <!-- Summary Table Expandable Toggle -->
+                <div class="mt-12 glass-panel rounded-2xl p-6 border border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-display text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-cyan-400"></i>
+                            Visão Geral Completa dos 6 Dias
+                        </h3>
+                        <span class="text-xs text-slate-400">3h30min por sessão • Total 21h</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-slate-300">
+                            <thead class="text-xs uppercase bg-slate-900/90 text-cyan-400 border-b border-slate-800">
+                                <tr>
+                                    <th class="py-3 px-4 font-semibold">Dia</th>
+                                    <th class="py-3 px-4 font-semibold">Tema Principal</th>
+                                    <th class="py-3 px-4 font-semibold">Foco Teórico</th>
+                                    <th class="py-3 px-4 font-semibold">Prática Aplicada</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/60">
+                                <tr class="hover:bg-slate-900/40 transition-colors">
+                                    <td class="py-3.5 px-4 font-bold text-cyan-400">Dia 1</td>
+                                    <td class="py-3.5 px-4 font-semibold text-white">LLMs, Prompts e Agentic AI no Setor Público</td>
+                                    <td class="py-3.5 px-4 text-slate-400">Arquitetura de LLMs, Few-Shot, Chain-of-Thought e diferenças entre IA reativa e Agentes.</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-200 border border-slate-700">Prompt padronizado em JSON</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40 transition-colors">
+                                    <td class="py-3.5 px-4 font-bold text-cyan-400">Dia 2</td>
+                                    <td class="py-3.5 px-4 font-semibold text-white">Mapeamento de Processos e Design de Agentes</td>
+                                    <td class="py-3.5 px-4 text-slate-400">Diagnóstico de fluxos universitários, níveis de alçada e intervenção Human-in-the-Loop.</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-200 border border-slate-700">Blueprint & Canvas do Agente</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40 transition-colors">
+                                    <td class="py-3.5 px-4 font-bold text-cyan-400">Dia 3</td>
+                                    <td class="py-3.5 px-4 font-semibold text-white">Low-Code, RAG com Normativas e Guardrails</td>
+                                    <td class="py-3.5 px-4 text-slate-400">Indexação vetorial de Resoluções e Portarias em Gemini Notebook para eliminação de alucinações.</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-200 border border-slate-700">Agente RAG do Regimento Interno</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40 transition-colors">
+                                    <td class="py-3.5 px-4 font-bold text-cyan-400">Dia 4</td>
+                                    <td class="py-3.5 px-4 font-semibold text-white">Orquestração Multi-Agente e APIs</td>
+                                    <td class="py-3.5 px-4 text-slate-400">Sincronização de agentes pareceristas e notificadores gerados por Antigravity.</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-200 border border-slate-700">Esteira Multi-Agente Automática</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40 transition-colors">
+                                    <td class="py-3.5 px-4 font-bold text-cyan-400">Dia 5</td>
+                                    <td class="py-3.5 px-4 font-semibold text-white">Governança, LGPD Pública e Gestão de Riscos</td>
+                                    <td class="py-3.5 px-4 text-slate-400">Conformidade legal, LAI, anonimização de dados e prevenção a Prompt Injection.</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-200 border border-slate-700">Matriz de Governança & RIPD</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40 transition-colors">
+                                    <td class="py-3.5 px-4 font-bold text-cyan-400">Dia 6</td>
+                                    <td class="py-3.5 px-4 font-semibold text-white">Modelo I.O.A. & Apresentações</td>
+                                    <td class="py-3.5 px-4 text-slate-400">Gestão da mudança na universidade e apresentação do protótipo funcional em formato Pitch.</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-xs bg-emerald-950 text-emerald-300 border border-emerald-700">Apresentação Pitch + Certificação</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Low-Code Tech Stack Section -->
+        <section id="stack" class="py-20 relative bg-slate-900/50 border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-indigo-400 font-semibold text-sm tracking-wider uppercase bg-indigo-950/60 px-3.5 py-1.5 rounded-full border border-indigo-800/40">Ecossistema de Ferramentas</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-4">Stack Low-Code Google AI</h2>
+                    <p class="text-slate-400 text-base mt-2">Tecnologias de ponta integradas para prototipagem rápida e implantação no setor administrativo sem necessidade de conhecimentos profundos em programação.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Tech 1 -->
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-cyan-950/80 border border-cyan-800/50 flex items-center justify-center text-cyan-400 text-xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">Google Gemini</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Modelo de linguagem multimodal de última geração para processamento de linguagem natural, análise de requerimentos e raciocínio lógico em processos.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-cyan-400 font-medium">
+                            <span>Motor de IA</span>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Tech 2 -->
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-indigo-950/80 border border-indigo-800/50 flex items-center justify-center text-indigo-400 text-xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">Gemini Gems</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Versões personalizadas do Gemini pré-configuradas com instruções específicas, personas operacionais e funções direcionadas para tarefas universitárias.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-indigo-400 font-medium">
+                            <span>Agentes Especializados</span>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Tech 3 -->
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-950/80 border border-emerald-800/50 flex items-center justify-center text-emerald-400 text-xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-book-atlas"></i>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">Gemini Notebooks</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Ambiente para indexação vetorial (RAG) de estatutos, regimentos e atos normativos da universidade com garantias de ancoragem legal.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400 font-medium">
+                            <span>Indexação RAG</span>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Tech 4 -->
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-purple-500/40 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-950/80 border border-purple-800/50 flex items-center justify-center text-purple-400 text-xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">Antigravity</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Plataforma de orquestração no-code/low-code para integrar múltiplos agentes com webhooks, APIs REST e automação de tramitações.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-purple-400 font-medium">
+                            <span>Orquestrador Multi-Agente</span>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Governance, Ethics & LGPD Section -->
+        <section id="governanca" class="py-20 relative bg-slate-950 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-emerald-500/20 relative overflow-hidden">
+                    <!-- Background aura -->
+                    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-950 text-emerald-400 border border-emerald-800/60 mb-4">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                Conformidade e Ética Pública
+                            </span>
+                            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                                Governança, Ética e LGPD no Setor Público
+                            </h2>
+                            <p class="text-slate-300 text-base mt-4 leading-relaxed">
+                                Todas as soluções desenvolvidas no mini-curso CAMPUS-A seguem rigorosamente os princípios constitucionais da administração pública, transparência (LAI) e proteção integral de dados.
+                            </p>
+                            <div class="mt-6 flex items-center gap-3">
+                                <div class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-semibold text-emerald-400 flex items-center gap-2">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    LAI & Transparência
+                                </div>
+                                <div class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-semibold text-cyan-400 flex items-center gap-2">
+                                    <i class="fa-solid fa-check text-cyan-400"></i>
+                                    Matriz de Risco RIPD
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 space-y-4">
+                            
+                            <!-- Rule 1 -->
+                            <div class="bg-slate-900/80 rounded-2xl p-5 border border-slate-800 hover:border-emerald-500/40 transition-all flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-950 flex-shrink-0 flex items-center justify-center text-emerald-400 font-bold">
+                                    <i class="fa-solid fa-user-check"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-white text-base">Human-in-the-Loop (HITL)</h3>
+                                    <p class="text-slate-400 text-sm mt-1">
+                                        Nenhum ato administrativo vinculado é deferido sem a assinatura e validação expressa do servidor público responsável. A IA atua como assistente parecerista, mantendo a soberania do servidor.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Rule 2 -->
+                            <div class="bg-slate-900/80 rounded-2xl p-5 border border-slate-800 hover:border-emerald-500/40 transition-all flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-cyan-950 flex-shrink-0 flex items-center justify-center text-cyan-400 font-bold">
+                                    <i class="fa-solid fa-id-card-clip"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-white text-base">Anonimização de Informações Pessoais (IIP)</h3>
+                                    <p class="text-slate-400 text-sm mt-1">
+                                        Filtros automáticos e expressões pré-processadas para mascaramento de CPF, matrículas discentes, dados bancários e informações sensíveis antes do envio às APIs de IA.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Rule 3 -->
+                            <div class="bg-slate-900/80 rounded-2xl p-5 border border-slate-800 hover:border-emerald-500/40 transition-all flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-950 flex-shrink-0 flex items-center justify-center text-indigo-400 font-bold">
+                                    <i class="fa-solid fa-box-archive"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-white text-base">Auditabilidade e Rastreabilidade de Logs</h3>
+                                    <p class="text-slate-400 text-sm mt-1">
+                                        Registro completo e auditável dos prompts, contextos normativos e respostas geradas pelos agentes para controle interno, ouvidoria e órgãos externos de fiscalização.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Banner CTA Inscreva-se -->
+        <section class="py-16 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="relative rounded-3xl overflow-hidden p-8 sm:p-12 bg-gradient-to-r from-[#003366] via-indigo-950 to-slate-900 border border-cyan-500/30 text-center glow-unifei">
+                    <div class="max-w-3xl mx-auto">
+                        <span class="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 inline-block mb-4">
+                            Conheça o Mini Curso CAMPUS-A UNIFEI
+                        </span>
+                        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">
+                            Pronto para transformar os processos da sua unidade acadêmica?
+                        </h2>
+                        <p class="text-slate-300 text-base mb-8">
+                            Junte-se aos servidores técnicos, docentes e gestores da UNIFEI na liderança da transformação digital ética com inteligência artificial.
+                        </p>
+                        <button onclick="openEnrollmentModal()" class="px-8 py-4 rounded-xl bg-cyan-400 text-slate-950 hover:bg-cyan-300 font-extrabold text-base shadow-xl shadow-cyan-400/20 active:scale-95 transition-all inline-flex items-center gap-2">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <span>Informações</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Institutional Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-sm py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Brand -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="https://unifei.edu.br/wp-content/uploads/2022/08/cropped-logo-unifei-grande-32x32.png" alt="UNIFEI Logo" class="w-8 h-8 object-contain">
+                        <span class="font-display font-black text-xl text-white tracking-tight">CAMPUS-A UNIFEI</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed pr-4">
+                        Programa de Capacitação em Agentes e Modelos de Processos na Universidade e Setor Administrativo. Desenvolvido no âmbito da Universidade Federal de Itajubá.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs text-cyan-400">
+                        <i class="fa-regular fa-envelope"></i>
+                        <a href="mailto:campus-a@unifei.edu.br" class="hover:underline font-medium">campus-a@unifei.edu.br</a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-display font-bold text-white text-xs uppercase tracking-wider">Navegação</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#sobre" class="hover:text-cyan-400 transition-colors">Sobre o Curso</a></li>
+                        <li><a href="#objetivos" class="hover:text-cyan-400 transition-colors">Objetivos do Programa</a></li>
+                        <li><a href="#cronograma" class="hover:text-cyan-400 transition-colors">Cronograma (6 Dias)</a></li>
+                        <li><a href="#stack" class="hover:text-cyan-400 transition-colors">Stack Low-Code</a></li>
+                        <li><a href="#governanca" class="hover:text-cyan-400 transition-colors">Governança & LGPD</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Legal & IP -->
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="font-display font-bold text-white text-xs uppercase tracking-wider">Propriedade Intelectual</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Este programa é de propriedade intelectual exclusiva da <strong>Universidade Federal de Itajubá (UNIFEI)</strong>, amparado pela Lei Federal nº 9.610/1998 (Direitos Autorais) e Lei Federal nº 9.609/1998 (Proteção de Software).
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        Coordenação: UNIFEI IESTI
+                    </p>
+                </div>
+
             </div>
 
-            <div class="transcript-stream">
-              <p class="speech-entry">
-                <span class="time">[14:02]</span> <strong>Presidente:</strong>
-                "Havendo quórum regimental, declaramos aberta a reunião do CEPEAd da UNIFEI."
-              </p>
-              <p class="speech-entry">
-                <span class="time">[14:05]</span> <strong>Relator:</strong>
-                "Em discussão o parecer sobre a reformulação do Projeto Pedagógico de Curso..."
-              </p>
-              <p class="speech-entry ghost-text">
-                <em>[Processando áudio do microfone principal...]</em>
-              </p>
+            <!-- Bottom Copyright & Back to Top -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 CAMPUS-A UNIFEI. Todos os direitos reservados.</p>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-cyan-400 flex items-center gap-1.5 transition-colors">
+                    <span>Voltar ao topo</span>
+                    <i class="fa-solid fa-arrow-up text-xs"></i>
+                </button>
             </div>
-          </div>
         </div>
+    </footer>
 
-        <!-- Painel 2: Processamento e Geração da ATA -->
-        <div class="panel code-panel">
-          <div class="panel-head"><span class="dot"></span> transcrever_e_gerar_ata.py</div>
-          <div class="panel-body">
-            <pre><span class="ln">1</span><span class="kw">import</span> speech_recognizer, llm_unifei
-<span class="ln">2</span>
-<span class="ln">3</span><span class="kw">def</span> processar_reuniao_cepead(stream_audio):
-<span class="ln">4</span>    <span class="comment"># 1. Captura e transcrição do áudio da reunião</span>
-<span class="ln">5</span>    texto_bruto = speech_recognizer.transcrever(stream_audio)
-<span class="ln">6</span>    
-<span class="ln">7</span>    <span class="comment"># 2. Resumo estruturado para a Ata Oficial da UNIFEI</span>
-<span class="ln">8</span>    ata_gerada = llm_unifei.gerar_ata(
-<span class="ln">9</span>        transcricao=texto_bruto,
-<span class="ln">10</span>        orgao=<span class="str">"CEPEAd - UNIFEI"</span>,
-<span class="ln">11</span>        extrair=[<span class="str">"pautas"</span>, <span class="str">"deliberacoes"</span>, <span class="str">"votacoes"</span>]
-<span class="ln">12</span>    )
-<span class="ln">13</span>    <span class="kw">return</span> ata_gerada
-<span class="ln">14</span>
-<span class="ln">15</span><span class="ghost">    # Copilot sugere: Salvar minuta da ATA em formato PDF/A oficial</span></pre>
-          </div>
+    <!-- Enrollment / Interest Modal -->
+    <div id="enrollmentModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md transition-opacity duration-300">
+        <div class="glass-panel w-full max-w-lg rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-2xl relative animate-in fade-in zoom-in-95">
+            <!-- Close Button -->
+            <button onclick="closeEnrollmentModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white w-8 h-8 rounded-full bg-slate-800/80 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="mb-6">
+                <div class="inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 bg-cyan-950/80 px-3 py-1 rounded-full border border-cyan-800/50 mb-2">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Formulário de Interesse
+                </div>
+                <h3 class="font-display text-2xl font-bold text-white">Conheça no CAMPUS-A</h3>
+                <p class="text-xs text-slate-400 mt-1">Preencha seus dados institucionais para receber informações do mini-curso.</p>
+            </div>
+
+            <!-- Form Body -->
+            <form id="enrollmentForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Nome Completo</label>
+                    <input type="text" required placeholder="Ex: Profa. Dra. Maria Silva" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-100 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Vínculo Institucional</label>
+                        <select required class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-100 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500">
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="TA">Servidor Técnico-Administrativo (TAE)</option>
+                            <option value="Docente">Docente</option>
+                            <option value="Discente">Discente (Análise/Gestão)</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Unidade / Departamento</label>
+                        <input type="text" required placeholder="Ex: IESTI / PRPPG" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-100 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">E-mail Institucional</label>
+                    <input type="email" required placeholder="seu.nome@unifei.edu.br" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-100 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Motivação principal ou processo que deseja automatizar</label>
+                    <textarea rows="3" placeholder="Descreva brevemente um processo da sua unidade que você deseja mapear ou otimizar..." class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-100 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 hover:opacity-95 active:scale-98 transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Enviar Interesse</span>
+                    </button>
+                </div>
+            </form>
         </div>
-      </div>
     </div>
-  </header>
 
-  <div class="stats">
-    <div class="wrap">
-      <div class="stat"><span class="n">21h</span><span class="l">carga horária total</span></div>
-      <div class="stat"><span class="n">6</span><span class="l">dias de curso</span></div>
-      <div class="stat"><span class="n">3h30</span><span class="l">por dia</span></div>
-      <div class="stat"><span class="n">3</span><span class="l">níveis: básico, médio, avançado</span></div>
+    <!-- Custom Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden max-w-md p-4 rounded-2xl glass-panel border border-emerald-500/40 shadow-2xl transition-all duration-300">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-950 flex items-center justify-center text-emerald-400 font-bold text-lg flex-shrink-0">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+                <h4 id="toastTitle" class="font-display font-bold text-white text-sm">Interesse Enviado!</h4>
+                <p id="toastMessage" class="text-xs text-slate-300 mt-0.5">Sua solicitação foi recebida com sucesso pela coordenação UNIFEI IESTI.</p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <section class="block" id="ferramentas">
-    <div class="wrap">
-      <p class="kicker">metodologia</p>
-      <h2>Por que GitHub Copilot e Codespaces</h2>
-      <p class="lead">
-        O curso ensina a construir agentes de IA usando, ele mesmo, um agente de IA como
-        ferramenta de trabalho — para que a turma sinta na prática os benefícios e os
-        limites de programar com assistência de IA antes de projetar essa experiência
-        para os servidores da universidade.
-      </p>
+    <!-- Client-side Logic Script -->
+    <script>
+        const scheduleData = [
+            {
+                day: 1,
+                title: "LLMs, Prompts e Agentic AI no Setor Público",
+                hours: "3h 30min",
+                theory: "Arquitetura de LLMs, Few-Shot, Chain-of-Thought e diferenças essenciais entre IA reativa tradicional e Agentes Autônomos de IA.",
+                practice: "Construção de prompt padronizado para análise e classificação de requerimentos acadêmicos com saída estruturada em JSON.",
+                outcomes: ["Engenharia de Prompt Avançada", "Tratamento de JSON em Processos", "Conceitos de Agentic AI"]
+            },
+            {
+                day: 2,
+                title: "Mapeamento de Processos e Design de Agentes",
+                hours: "3h 30min",
+                theory: "Diagnóstico detalhado de fluxos administrativos universitários, identificação de níveis de alçada e pontos críticos para intervenção Human-in-the-Loop.",
+                practice: "Desenvolvimento do Blueprint e do Canvas do Agente de Processo Administrativo para a unidade acadêmica.",
+                outcomes: ["Mapeamento de Processos Públicos", "Design do Agente Canvas", "Definição de Alçadas HITL"]
+            },
+            {
+                day: 3,
+                title: "Low-Code, RAG com Normativas e Guardrails",
+                hours: "3h 30min",
+                theory: "Técnicas de indexação vetorial (RAG) de Estatutos, Regimentos Internos e Resoluções no Gemini Notebook para eliminação total de alucinações.",
+                practice: "Construção prática de um Agente RAG funcional conectado e limitado ao Regimento Interno da UNIFEI.",
+                outcomes: ["RAG com Gemini Notebook", "Ancoragem Legal", "Eliminação de Alucinações"]
+            },
+            {
+                day: 4,
+                title: "Orquestração Multi-Agente e APIs",
+                hours: "3h 30min",
+                theory: "Conceitos de orquestração assíncrona, sincronização de agentes pareceristas e notificadores gerados por Antigravity.",
+                practice: "Montagem da Esteira Multi-Agente de Tramitação Automática integrando triagem, parecer técnico e notificação.",
+                outcomes: ["Plataforma Antigravity", "Orquestração via APIs/Webhooks", "Tramitação Automática"]
+            },
+            {
+                day: 5,
+                title: "Governança, LGPD Pública e Gestão de Riscos",
+                hours: "3h 30min",
+                theory: "Conformidade com LGPD Pública, LAI, mascaramento de IIP (Informações de Identificação Pessoal) e defesa contra Prompt Injection.",
+                practice: "Elaboração da Matriz de Governança e preenchimento do Relatório de Impacto à Proteção de Dados (RIPD).",
+                outcomes: ["Matriz de Governança", "RIPD & Anonimização IIP", "Mitigação de Prompt Injection"]
+            },
+            {
+                day: 6,
+                title: "Modelo I.O.A., Pitch dos Protótipos e Certificação",
+                hours: "3h 30min",
+                theory: "Gestão da mudança cultural na universidade pública, estratégias de adoção contínua e apresentação no Modelo I.O.A.",
+                practice: "Apresentação em formato Pitch dos protótipos funcionais desenvolvidos pelos alunos e sessão oficial de Certificação.",
+                outcomes: ["Apresentação de Pitch", "Modelo I.O.A. de Adoção", "Certificação Oficial UNIFEI"]
+            }
+        ];
 
-      <div class="why-grid">
-        <div class="why-item">
-          <h3>codespaces — ambiente sem instalação</h3>
-          <p>
-            Cada dia do curso é entregue como um Codespace pré-configurado: o material,
-            as bibliotecas e a base normativa de exemplo já estão prontos. Servidores sem
-            experiência prévia com ambientes de desenvolvimento começam a codificar em
-            poucos minutos, direto do navegador, sem instalar nada na máquina local.
-          </p>
-        </div>
-        <div class="why-item">
-          <h3>copilot — par de programação</h3>
-          <p>
-            O Copilot ajuda a escrever o código do agente (extração de PDFs, chunking por
-            artigo, integração com a base vetorial), enquanto a turma pratica revisar
-            criticamente cada sugestão — o mesmo hábito de verificação que o agente
-            final precisará impor a si mesmo diante de uma norma.
-          </p>
-        </div>
-        <div class="why-item">
-          <h3>um devcontainer por nível</h3>
-          <p>
-            Básico, médio e avançado têm devcontainers próprios, cada um adicionando as
-            bibliotecas do estágio seguinte — a complexidade técnica cresce junto com a
-            complexidade normativa tratada em cada nível.
-          </p>
-        </div>
-        <div class="why-item">
-          <h3>histórico versionado</h3>
-          <p>
-            Cada exercício é salvo como commit no repositório do participante. Ao final
-            do curso, o histórico do Codespace é, ele mesmo, um registro do raciocínio
-            seguido — o mesmo princípio de rastreabilidade exigido de um agente
-            institucional.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+        let activeDay = 1;
 
-  <section class="block" id="programa">
-    <div class="wrap">
-      <p class="kicker">programa</p>
-      <h2>Seis dias, três níveis</h2>
-      <p class="lead">
-        Cada dia parte de um Codespace próprio. A complexidade do código e das normas
-        tratadas cresce do dia 1 ao dia 6.
-      </p>
+        // Render Schedule Cards based on tab or search
+        function renderScheduleCards(filteredItems = null) {
+            const container = document.getElementById('scheduleCardsContainer');
+            const items = filteredItems || scheduleData.filter(item => item.day === activeDay);
 
-      <div class="level-group">
-        <div class="level-label">
-          <span class="tag basico">básico</span>
-          <span class="lname">fundamentos e panorama normativo</span>
-        </div>
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 glass-panel rounded-2xl">
+                        <i class="fa-solid fa-folder-open text-slate-500 text-3xl mb-3"></i>
+                        <p class="text-slate-400 font-medium text-sm">Nenhum tópico encontrado para esta busca.</p>
+                        <button onclick="resetSearch()" class="mt-3 text-xs text-cyan-400 font-semibold hover:underline">Limpar filtro de busca</button>
+                    </div>
+                `;
+                return;
+            }
 
-        <div class="day">
-          <span class="num">01</span>
-          <div class="content">
-            <h3>Fundamentos de agentes de IA</h3>
-            <p>O que diferencia um chatbot de um agente com ferramentas; por que RAG é o
-              ponto de partida para o domínio normativo. Prática: comparar uma resposta
-              sem contexto normativo com uma resposta ancorada em um trecho real de
-              Regimento.</p>
-            <span class="cs">codespace: <span class="name">dia-01-fundamentos</span></span>
-          </div>
-        </div>
+            container.innerHTML = items.map(item => `
+                <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#003366] to-cyan-600 text-white font-extrabold flex items-center justify-center text-sm shadow-md">
+                                D${item.day}
+                            </span>
+                            <div>
+                                <h3 class="font-display font-bold text-xl text-white">${item.title}</h3>
+                                <p class="text-xs text-slate-400 font-medium">Duração da Sessão: ${item.hours}</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-950 text-cyan-300 border border-cyan-800/60 self-start sm:self-auto">
+                            Módulo ${item.day} de 6
+                        </span>
+                    </div>
 
-        <div class="day">
-          <span class="num">02</span>
-          <div class="content">
-            <h3>Panorama normativo e mapeamento de processos</h3>
-            <p>Hierarquia entre Estatuto, Regimento Geral, Regimentos de Conselhos e
-              Resoluções. Prática: classificar documentos reais da universidade e mapear
-              processos candidatos à automação num notebook compartilhado.</p>
-            <span class="cs">codespace: <span class="name">dia-02-normas</span></span>
-          </div>
-        </div>
-      </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-book"></i> Foco Teórico
+                            </h4>
+                            <p class="text-sm text-slate-300 leading-relaxed">${item.theory}</p>
+                        </div>
 
-      <div class="level-group">
-        <div class="level-label">
-          <span class="tag medio">médio</span>
-          <span class="lname">arquitetura e base de conhecimento</span>
-        </div>
+                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-laptop-code"></i> Prática Aplicada
+                            </h4>
+                            <p class="text-sm text-slate-300 leading-relaxed">${item.practice}</p>
+                        </div>
+                    </div>
 
-        <div class="day">
-          <span class="num">03</span>
-          <div class="content">
-            <h3>Arquitetura de agentes para o setor público</h3>
-            <p>Padrão RAG institucional, roteador de subagentes por domínio e guardrails
-              essenciais. Prática: desenhar, no próprio Codespace, o diagrama de
-              arquitetura de um agente para um conselho real.</p>
-            <span class="cs">codespace: <span class="name">dia-03-arquitetura</span></span>
-          </div>
-        </div>
+                    <div class="mt-6 flex flex-wrap items-center gap-2 pt-4 border-t border-slate-800/60">
+                        <span class="text-xs text-slate-400 font-medium mr-2">Competências:</span>
+                        ${item.outcomes.map(out => `
+                            <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/90 text-slate-300 border border-slate-700/60 flex items-center gap-1.5">
+                                <i class="fa-solid fa-check text-cyan-400 text-[10px]"></i>
+                                ${out}
+                            </span>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
 
-        <div class="day">
-          <span class="num">04</span>
-          <div class="content">
-            <h3>Construção da base de conhecimento normativa</h3>
-            <p>Chunking por artigo e parágrafo, metadados de vigência, versionamento de
-              normas. Prática: com o Copilot, escrever o parser que transforma um PDF de
-              Resolução em registros estruturados.</p>
-            <span class="cs">codespace: <span class="name">dia-04-base-conhecimento</span></span>
-          </div>
-        </div>
-      </div>
+        // Tab selection logic
+        function selectDay(dayNumber) {
+            activeDay = dayNumber;
+            document.getElementById('scheduleSearch').value = '';
 
-      <div class="level-group">
-        <div class="level-label">
-          <span class="tag avancado">avançado</span>
-          <span class="lname">construção, governança e entrega</span>
-        </div>
+            // Update Tab Styles
+            for (let i = 1; i <= 6; i++) {
+                const tab = document.getElementById(`tab-day-${i}`);
+                if (i === dayNumber) {
+                    tab.className = 'tab-btn px-5 py-3 rounded-xl font-medium text-sm whitespace-nowrap transition-all bg-cyan-600 text-white shadow-lg shadow-cyan-600/20 border border-cyan-400/30 flex items-center gap-2';
+                    tab.querySelector('span:first-child').className = 'w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center font-bold text-xs';
+                } else {
+                    tab.className = 'tab-btn px-5 py-3 rounded-xl font-medium text-sm whitespace-nowrap transition-all bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 border border-slate-800 flex items-center gap-2';
+                    tab.querySelector('span:first-child').className = 'w-6 h-6 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-xs';
+                }
+            }
 
-        <div class="day">
-          <span class="num">05</span>
-          <div class="content">
-            <h3>Desenvolvimento prático de um agente institucional</h3>
-            <p>Implementação do RAG, geração de minutas de ata, checagem de quórum e
-              checklist de prazos. Prática: protótipo funcional respondendo perguntas
-              normativas reais, com citação de fonte.</p>
-            <span class="cs">codespace: <span class="name">dia-05-prototipo</span></span>
-          </div>
-        </div>
+            renderScheduleCards();
+        }
 
-        <div class="day">
-          <span class="num">06</span>
-          <div class="content">
-            <h3>Governança, avaliação e projeto final</h3>
-            <p>LGPD, LAI, accountability e trilha de auditoria; metodologia de teste com
-              gabarito validado por especialistas. Encerramento com a apresentação do
-              projeto final de cada participante.</p>
-            <span class="cs">codespace: <span class="name">dia-06-governanca</span></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        // Search Filter for Schedule
+        function filterSchedule() {
+            const query = document.getElementById('scheduleSearch').value.toLowerCase().trim();
+            if (!query) {
+                renderScheduleCards();
+                return;
+            }
 
-  <section class="block" id="projeto-final">
-    <div class="wrap">
-      <p class="kicker">entrega</p>
-      <h2>Projeto final</h2>
-      <div class="final">
-        <p class="kicker">apresentado no dia 6, a partir do repositório construído ao longo do curso</p>
-        <p class="lead" style="margin-bottom:0;">
-          Cada participante ou grupo entrega um agente para um órgão real da universidade,
-          versionado no próprio Codespace:
-        </p>
-        <ul>
-          <li>Escopo do agente e processo(s) automatizado(s), com justificativa</li>
-          <li>Diagrama de arquitetura com guardrails e ponto de validação humana</li>
-          <li>Amostra da base de conhecimento com metadados de vigência</li>
-          <li>Protótipo respondendo perguntas reais com citação de fonte normativa</li>
-          <li>Checklist de governança (LGPD, LAI, accountability) aplicado ao agente</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+            const filtered = scheduleData.filter(item => 
+                item.title.toLowerCase().includes(query) ||
+                item.theory.toLowerCase().includes(query) ||
+                item.practice.toLowerCase().includes(query) ||
+                item.outcomes.some(o => o.toLowerCase().includes(query))
+            );
 
-  <footer>
-    <div class="wrap">
-      <div class="foot-grid">
-        <div>
-          <h3>pré-requisitos</h3>
-          <ul>
-            <li>Lógica de programação básica (Python é bem-vindo, mas não obrigatório)</li>
-            <li>Conta GitHub para acesso ao Codespace de cada dia</li>
-            <li>Familiaridade com processos administrativos da universidade</li>
-          </ul>
-        </div>
-        <!-- <div>
-          <h3>inscrições</h3>
-          <p>Vagas limitadas por turma, priorizando um representante por órgão colegiado
-            ou secretaria administrativa.</p>
-          <a class="cta" href="#" onclick="return false;">Solicitar inscrição</a>
-        </div> -->
-      </div>
+            renderScheduleCards(filtered);
+        }
 
-      <p class="fineprint">
-        Curso desenvolvido com base na estrutura normativa da UNIFEI (Estatuto, Regimento
-        Geral e Resoluções dos Conselhos Superiores). </br>GitHub, Copilot e Codespaces são
-        marcas de seus respectivos titulares, mencionadas aqui apenas como ferramentas
-        didáticas do curso.
-      </p>
-    </div>
-  </footer>
+        function resetSearch() {
+            document.getElementById('scheduleSearch').value = '';
+            renderScheduleCards();
+        }
 
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-xl';
+            }
+        }
+
+        // Modal Controls
+        function openEnrollmentModal() {
+            const modal = document.getElementById('enrollmentModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEnrollmentModal() {
+            const modal = document.getElementById('enrollmentModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Form Submission Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            closeEnrollmentModal();
+            showToast('Inscrição Registrada!', 'Sua solicitação foi enviada para campus-a@unifei.edu.br com sucesso.');
+            event.target.reset();
+        }
+
+        // Custom Toast Notification
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastTitle').textContent = title;
+            document.getElementById('toastMessage').textContent = message;
+
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            renderScheduleCards();
+        };
+    </script>
 </body>
-
 </html>

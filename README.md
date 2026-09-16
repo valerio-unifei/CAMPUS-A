@@ -1,112 +1,55 @@
-# CAMPUS-A
-**Capacitação em Agentes e Modelos de Processos na Universidade e Setor Administrativo**
+# CAMPUS-A: Capacitação em Agentes e Modelos de Processos na Universidade e Setor Administrativo
 
-**Formato:** 21 horas | 6 dias | 3h30 por dia | Níveis Básico → Médio → Avançado
-**Estudo de caso institucional:** UNIFEI (Universidade Federal de Itajubá)
+[![Carga Horária](https://img.shields.io/badge/Carga_Hor%C3%A1ria-21_Horas_%28Mini--Curso%29-blue?style=for-the-badge)](https://github.com/)
+[![Conformidade LGPD](https://img.shields.io/badge/Conformidade-LGPD-emerald.svg?style=for-the-badge&logo=shield)](https://github.com/)
+[![Low-Code Stack](https://img.shields.io/badge/Stack-Gemini%20Gems%20%7C%20Gemini%20Notebooks%20%7C%20Antigravity-cyan.svg?style=for-the-badge&logo=diagram-next)](https://github.com/)
 
-## Estrutura geral
-
-| Dia | Nível | Tema | Duração |
-|---|---|---|---|
-| 1 | Básico | Fundamentos de Agentes de IA | 3h30 |
-| 2 | Básico | Panorama Normativo e Mapeamento de Processos | 3h30 |
-| 3 | Médio | Arquitetura de Agentes para o Setor Público | 3h30 |
-| 4 | Médio | Construção da Base de Conhecimento Normativa | 3h30 |
-| 5 | Avançado | Desenvolvimento Prático de um Agente Institucional | 3h30 |
-| 6 | Avançado | Governança, Avaliação e Implantação + Projeto Final | 3h30 |
+> **CAMPUS-A** é um programa de capacitação teórico-prático desenvolvido para capacitar servidores técnicos administrativos, docentes, discentes na área de gestão e análise universitária para transformar a gestão de processos na universidade pública utilizando **Agentes Autônomos de IA**, **RAG (Retrieval-Augmented Generation)** ancorado em resoluções e normativas, e plataformas de automação low-code.
 
 ---
 
-## NÍVEL BÁSICO
+## 🎯 Objetivos do Programa
 
-### Dia 1 — Fundamentos de Agentes de IA (3h30)
-
-**Objetivo:** entender o que é um agente de IA e por que isso importa para o setor público.
-
-| Bloco | Duração | Conteúdo |
-|---|---|---|
-| 1 | 1h00 | O que é um LLM; diferença entre chatbot, RAG e agente autônomo com ferramentas |
-| 2 | 1h00 | Componentes de um agente: percepção, raciocínio/planejamento, ação (ferramentas), memória |
-| 3 | 1h00 | Por que RAG é o ponto de partida para o domínio normativo: o agente deve buscar a norma, não "inventá-la"; riscos de alucinação e de citar norma revogada |
-| 4 | 0h30 | **Prática:** comparar, em uma plataforma de IA, uma resposta sem contexto normativo vs. uma resposta ancorada em um trecho real de Regimento fornecido como contexto |
+1. **Mapear Processos Administrativos:** Identificar gargalos em tramitações (solicitações discentes, aprovações de crédito, emissão de pareceres, compras/licitações) e desenhar soluções autônomas de IA.
+2. **Construir Agentes RAG Normativos:** Indexar estatutos, regimentos internos e resoluções para consultas sem alucinações.
+3. **Orquestrar Multi-Agentes:** Conectar agentes triadores, pareceristas e notificadores via webhooks e REST APIs em plataformas no-code/low-code.
+4. **Assegurar Governança Pública & LGPD:** Garantir a proteção de dados sensíveis de discentes e servidores com total rastreabilidade e transparência algorítmica.
+5. **Aplicar o Framework A.G.E.N.T:** Metodologia estruturada para gerenciar a adoção cultural de IA nas reitorias, pró-reitorias e secretarias.
 
 ---
 
-### Dia 2 — Panorama Normativo e Mapeamento de Processos (3h30)
+## 📅 Estrutura do Mini-Curso (21 Horas • 6 Encontros de 3h30min)
 
-**Objetivo:** conhecer a hierarquia normativa da universidade e identificar processos administrativos automatizáveis.
-
-| Bloco | Duração | Conteúdo |
-|---|---|---|
-| 1 | 1h00 | Hierarquia normativa: Constituição/leis federais (LDB, Lei 8.112/90, Lei 9.784/99, LAI, LGPD) → Estatuto → Regimento Geral → Regimentos de Conselhos → Resoluções/Portarias |
-| 2 | 1h00 | Estrutura de órgãos administrativos: Reitoria, Pró-Reitorias, Conselhos Superiores, Colegiados de unidades, Comissões, Secretarias de Conselhos |
-| 3 | 1h00 | Critérios para escolher processos a automatizar (alto volume repetitivo, prazos bem definidos, redação estruturada) vs. o que **não** automatizar sem forte supervisão (deliberações de mérito, casos omissos) |
-| 4 | 0h30 | **Prática:** preencher tabela classificando 3–5 documentos reais da UNIFEI por nível hierárquico, órgão emissor e vigência; mapear 2 processos candidatos à automação |
-
----
-
-## NÍVEL MÉDIO
-
-### Dia 3 — Arquitetura de Agentes para o Setor Público (3h30)
-
-**Objetivo:** projetar a arquitetura técnica de um agente institucional seguro.
-
-| Bloco | Duração | Conteúdo |
-|---|---|---|
-| 1 | 1h00 | Arquitetura RAG institucional: base vetorial → busca semântica → geração com citação da fonte exata (artigo/parágrafo) |
-| 2 | 1h00 | Padrão roteador + subagentes especializados por domínio (acadêmico, pessoal, patrimonial); ferramentas (tools) que o agente pode acessar (consulta a processos, calendário, geração de documentos) |
-| 3 | 1h00 | Guardrails essenciais: nunca decidir em nome de colegiado, sempre citar fonte e vigência, recusar-se diante de ambiguidade/omissão, registrar logs (auditabilidade) |
-| 4 | 0h30 | **Prática:** desenhar a arquitetura de um "Agente Assistente" para um órgão real (ex.: Conselho de Ensino, Pesquisa e Extensão), indicando base de conhecimento, roteador, guardrails e ponto de validação humana |
+| Dia | Tema Principal | Foco Teórico | Prática |
+| :---: | :--- | :--- | :--- |
+| **Dia 1** | **LLMs, Prompts e Agentic AI no Setor Público** | Arquitetura de LLMs, Few-Shot, Chain-of-Thought e diferenças entre IA reativa e Agentes. | Prompt padronizado para análise de requerimentos em JSON. |
+| **Dia 2** | **Mapeamento de Processos e Design de Agentes** | Diagnóstico de fluxos universitários, níveis de alçada e intervenção *Human-in-the-Loop*. | Blueprint e Canvas do Agente de Processo Administrativo. |
+| **Dia 3** | **Low-Code, RAG com Normativas e Guardrails** | Indexação vetorial de Resoluções e Portarias em Gemini Notebook para eliminação de alucinações. | Agente RAG funcional conectado ao Regimento Interno. |
+| **Dia 4** | **Orquestração Multi-Agente e APIs** | Sincronização de agentes pareceristas e notificadores gerados por Antigravity. | Esteira Multi-Agente de Tramitação Automática. |
+| **Dia 5** | **Governança, LGPD Pública e Gestão de Riscos** | Conformidade legal, LAI, anonimização de dados e prevenção a *Prompt Injection*. | Matriz de Governança e Relatório de Impacto (RIPD). |
+| **Dia 6** | **Modelo I.O.A.** | Gestão da mudança na universidade e apresentação do protótipo funcional em formato Pitch. | **Certificação.** |
 
 ---
 
-### Dia 4 — Construção da Base de Conhecimento Normativa (3h30)
+## 🛠️ Ferramentas & Tecnologias Utilizadas
 
-**Objetivo:** transformar documentos institucionais em uma base consultável pelo agente.
-
-| Bloco | Duração | Conteúdo |
-|---|---|---|
-| 1 | 1h00 | Ingestão de PDFs (incluindo OCR para normas escaneadas); chunking estruturado por artigo/parágrafo (não por tamanho arbitrário) |
-| 2 | 1h00 | Metadados essenciais: tipo de documento, órgão emissor, data, **status de vigência** (vigente/revogado/alterado); versionamento normativo (como tratar resolução que altera artigos de outra) |
-| 3 | 1h00 | Ferramentas comuns: parsers de PDF, bancos vetoriais (Chroma, pgvector, FAISS), frameworks de orquestração (LangChain, LlamaIndex) ou implementação direta via API de LLM |
-| 4 | 0h30 | **Prática:** estruturar manualmente um JSON de exemplo a partir de 1 artigo real do Estatuto/Regimento da UNIFEI, com todos os metadados |
+* **Plataformas Low-Code/No-Code:** Gemini, Gemini Gems, Gemini Notebook, Antigravity
+* **Modelos de Linguagem:** Google (Gemini)
 
 ---
 
-## NÍVEL AVANÇADO
+## ⚖️ Governança, Ética e LGPD Pública
 
-### Dia 5 — Desenvolvimento Prático de um Agente Institucional (3h30)
-
-**Objetivo:** construir um protótipo funcional de agente de apoio a um órgão colegiado.
-
-| Bloco | Duração | Conteúdo |
-|---|---|---|
-| 1 | 1h00 | Implementação de RAG básico sobre a base construída no Dia 4 |
-| 2 | 1h00 | Funcionalidades assistivas: responder dúvidas normativas com citação; gerar minuta de ata a partir de notas soltas (sempre como rascunho); checar quórum com base no artigo aplicável; gerar checklist de prazos |
-| 3 | 1h00 | Guardrails de saída: toda resposta cita a fonte; se não houver base normativa suficiente, o agente sinaliza e recomenda análise jurídica/humana |
-| 4 | 0h30 | **Prática:** protótipo respondendo a 5 perguntas normativas reais da universidade, com citação de fonte |
+Todas as soluções desenvolvidas no programa **CAMPUS-A** seguem rigorosamente os princípios de:
+* **Human-in-the-Loop (HITL):** Nenhum ato administrativo vinculado é deferido sem a assinatura/validação do servidor público responsável.
+* **Anonimização de Informações de Identificação Pessoal (IIP):** Filtros automáticos para mascaramento de CPF, matrículas e dados pessoais sensíveis antes do envio às APIs de IA.
+* **Auditabilidade de Logs:** Rastreabilidade completa dos prompts e respostas geradas pelos agentes para fins de controle interno e órgãos de fiscalização.
 
 ---
 
-### Dia 6 — Governança, Avaliação, Implantação e Projeto Final (3h30)
+## 📜 Licença e Contato
 
-**Objetivo:** garantir uso responsável do agente e consolidar o projeto do curso.
+Este projeto é disponibilizado sob a licença de propriedade intelectual exclusiva da Universidade Federal de Itajubá, amparado pela Lei Federal nº 9.610/1998 (Lei de Direitos Autorais) e pela Lei Federal nº 9.609/1998 (Lei de Proteção da Propriedade Intelectual de Programa de Computador).
 
-| Bloco | Duração | Conteúdo |
-|---|---|---|
-| 1 | 0h45 | Governança: LGPD (dados pessoais em processos), LAI (transparência), accountability ("o agente assessora, o órgão decide e assina"), trilha de auditoria |
-| 2 | 0h45 | Avaliação: precisão de citação, taxa de alucinação, taxa de escalonamento correto; metodologia de teste com gabarito validado por especialistas |
-| 3 | 0h30 | Implantação faseada: piloto restrito → ajustes → expansão gradual; comunicação e treinamento dos servidores |
-| 4 | 1h30 | **Apresentação do Projeto Final** (ver abaixo) |
-
----
-
-## Projeto Final (apresentado no Dia 6)
-
-Cada participante/grupo entrega um pacote com:
-
-1. Escopo do agente e processo(s) automatizado(s), com justificativa (Dia 2).
-2. Diagrama de arquitetura com guardrails e ponto de validação humana (Dia 3).
-3. Amostra da base de conhecimento estruturada com metadados de vigência (Dia 4).
-4. Protótipo (ou especificação técnica detalhada) respondendo perguntas reais com citação de fonte (Dia 5).
-5. Checklist de governança (LGPD/LAI/accountability) aplicado ao agente proposto (Dia 6).
+* **Coordenação do Programa:** UNIFEI IESTI
+* **Contato Institucional:** `campus-a@unifei.edu.br`
