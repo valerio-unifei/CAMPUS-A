@@ -20,14 +20,18 @@
 
 ## 📅 Estrutura do Mini-Curso (21 Horas • 6 Encontros de 3h30min)
 
-| Dia | Tema Principal | Foco Teórico | Prática |
-| :---: | :--- | :--- | :--- |
-| **Dia 1** | **LLMs, Prompts e Agentic AI no Setor Público** | Arquitetura de LLMs, Few-Shot, Chain-of-Thought e diferenças entre IA reativa e Agentes. | Prompt padronizado para análise de requerimentos em JSON. |
-| **Dia 2** | **Mapeamento de Processos e Design de Agentes** | Diagnóstico de fluxos universitários, níveis de alçada e intervenção *Human-in-the-Loop*. | Blueprint e Canvas do Agente de Processo Administrativo. |
-| **Dia 3** | **Low-Code, RAG com Normativas e Guardrails** | Indexação vetorial de Resoluções e Portarias em Gemini Notebook para eliminação de alucinações. | Agente RAG funcional conectado ao Regimento Interno. |
-| **Dia 4** | **Orquestração Multi-Agente e APIs** | Sincronização de agentes pareceristas e notificadores gerados por Antigravity. | Esteira Multi-Agente de Tramitação Automática. |
-| **Dia 5** | **Governança, LGPD Pública e Gestão de Riscos** | Conformidade legal, LAI, anonimização de dados e prevenção a *Prompt Injection*. | Matriz de Governança e Relatório de Impacto (RIPD). |
-| **Dia 6** | **Modelo I.O.A.** | Gestão da mudança na universidade e apresentação do protótipo funcional em formato Pitch. | **Certificação.** |
+Módulo 0: Letramento Digital e IA sem Mistérios (4h): O que é IA generativa, como os modelos "pensam", limites da tecnologia (alucinação), segurança básica e superação do receio do uso de IA no serviço público.
+
+Módulo 1: Prompts Básicos e Gemini Gems (4h): Estrutura fundamental de um comando (Papel, Contexto, Tarefa e Formato), criação e teste de Gems simples para tarefas cotidianas.
+
+Módulo 2: Análise de Documentos no Gemini Notebook (4h): Upload de arquivos PDF/SEI, realização de pesquisas simples, resumos de processos e checagem de fontes sem necessidade de configurações técnicas.
+
+Módulo 3: Introdução Visual ao Google Antigravity (4h): Abordagem 100% no-code sobre automação agêntica, focando na lógica de construção de fluxos e na delegação de tarefas operacionais.
+
+Módulo 4: LGPD e Anonimização Prática (4h): Exercícios visuais de higienização de textos, identificação de dados sensíveis e uso de ferramentas de máscara antes do envio de dados para as IAs.
+
+Módulo 5: Laboratório Prático de Aplicação (4h): Oficina do tipo "mão na massa", onde o servidor constrói uma solução para um problema real da sua própria secretaria sob supervisão do instrutor.
+
 
 ---
 
