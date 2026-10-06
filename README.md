@@ -10,30 +10,40 @@
 
 ## 🎯 Objetivos do Programa
 
-1. **Usar IA com responsabilidade:** Reconhecer limites, proteger dados pessoais e aplicar revisão humana no uso de IA generativa no serviço público.
-2. **Aprimorar tarefas administrativas com o Gemini:** Criar instruções claras para resumir comunicações e preparar minutas, sempre verificando fatos e fontes.
-3. **Criar assistentes especializados:** Configurar e testar Gems para apoiar triagem e respostas a dúvidas recorrentes, com limites explícitos.
-4. **Consultar documentos e automatizar rotinas:** Usar Notebooks para análise fundamentada em fontes e explorar Agenda e Workspace Studio em tarefas de organização e acompanhamento.
-5. **Prototipar soluções aplicadas:** Experimentar no Google AI Studio e desenvolver um protótipo para um caso universitário, com controles e decisão final sob responsabilidade humana.
+1. **Usar IA com responsabilidade:** Aplicar minimização e sanitização LGPD em documentos, atas e processos, reconhecer limites de detectores de autoria e revisar os resultados.
+2. **Aprimorar comunicação e produtividade:** Praticar engenharia de prompt para o serviço público, configurar parâmetros de LLM, revisar gramática e apoiar a gestão de e-mails, atendimentos e tarefas.
+3. **Criar assistentes especializados:** Configurar e testar Gems para gerar atas padronizadas e apoiar rotinas de resposta e triagem com instruções e limites explícitos.
+4. **Analisar documentos e processos:** Usar Gemini Notebooks para resumir processos, verificar pontos importantes e relacioná-los à legislação interna, incluindo análise preliminar de recursos e jurisprudência institucional.
+5. **Automatizar e prototipar soluções universitárias:** Explorar fluxos de trabalho e construir protótipos para agrupar processos, acompanhar contratos e tarefas, classificar notas fiscais e analisar indicadores acadêmicos e orçamentários.
 
 ---
 
 ## 📅 Estrutura do Mini-Curso (21 Horas • 6 Encontros de 3h30min)
 
-1. **Dados sensíveis, LGPD e sanitização (3h30min):** Classificação e minimização de dados, reconhecimento de informações sensíveis e checklist para decidir o que não deve ser inserido em ferramentas de IA.
-2. **Gemini App e instruções eficazes (3h30min):** Construção e teste de prompts para resumir comunicações e elaborar minutas administrativas, com verificação humana dos fatos e do tom.
-3. **Gemini Gems: especialização em atividade (3h30min):** Especificação de instruções e limites para um assistente setorial e teste com dúvidas recorrentes ou triagem preliminar.
-4. **Gemini Notebooks e consulta a fontes (3h30min):** Análise de documentos e normas com referências às fontes, aplicada, por exemplo, à conferência de um termo de referência ou de um pedido acadêmico.
-5. **Gemini Agenda (Agente) e Google Workspace Studio (3h30min):** Desenho de rotinas de agenda, lembretes e acompanhamento de prazos, considerando integrações com Forms, Sheets, Agenda e Gmail.
-6. **Google AI Studio e laboratório final (3h30min):** Prototipagem e apresentação de uma solução para um caso universitário, como triagem de demandas, acompanhamento de prazos ou análise preliminar de documentos.
+1. **LGPD, sanitização e integridade documental (3h30min):** Criar e testar um fluxo de anonimização de documentos, atas e processos com dados fictícios; identificar o que precisa ser removido ou substituído e revisar o resultado. Discutir análise de autoria humana ou por IA e os limites de ferramentas como Turnitin: indicadores não são prova conclusiva.
+2. **Gemini App, engenharia de prompt e comunicação pública (3h30min):** Elaborar, testar e iterar prompts para o serviço público; comparar parâmetros de geração da LLM quando disponíveis; revisar gramática; classificar e resumir e-mails no Gmail; criar procedimentos e minutas para respostas por e-mail ou telefone, sem envio automático.
+3. **Gems, atas e assistentes de atendimento (3h30min):** Construir uma Gem para transformar uma transcrição fictícia em ata padronizada; testar instruções e prompts com documentos de referência no Notebook; criar critérios de revisão, encaminhamento e atribuição de tarefas para acompanhamento.
+4. **Notebooks, análise de documentos e processos (3h30min):** Analisar ofícios, procedimentos internos e documentos do MEC; extrair pontos importantes e legislação associada; resumir processos; praticar análise preliminar de admissibilidade de recursos, agrupamento temático e pesquisa de jurisprudência interna com fontes citadas.
+5. **Agenda, Gmail e automação de acompanhamento (3h30min):** Desenhar fluxos para triagem de e-mails, atribuição e acompanhamento de tarefas, reuniões e prazos. Em exercícios com dados fictícios, selecionar uma aplicação: fiscalização de contratos, previsão de demanda de insumos, classificação de notas fiscais ou painel de impacto orçamentário e acadêmico.
+6. **AI Studio, parâmetros e laboratório de protótipos (3h30min):** Configurar e comparar parâmetros de LLM em uma tarefa controlada; prototipar um caso administrativo ou acadêmico. Explorar, se disponíveis na conta, geração de imagens com Nano Banana 2 para folder ou comunicação institucional e produção de vídeo explicativo com Google Vids; apresentar limites, validações e revisão humana.
+
+### Roteiros e exercícios por aula
+
+- [Aula 1 — LGPD, sanitização e integridade documental](aulas/oficina-01-lgpd-e-anonimizacao.md)
+- [Aula 2 — Engenharia de prompt e comunicação no serviço público](aulas/oficina-02-prompts-e-comunicacao-publica.md)
+- [Aula 3 — Gemini Gems para atas e rotinas setoriais](aulas/oficina-03-gems-e-atas.md)
+- [Aula 4 — Gemini Notebooks para análise documental e processual](aulas/oficina-04-notebooks-e-processos.md)
+- [Aula 5 — Workspace Studio, e-mails e acompanhamento de rotinas](aulas/oficina-05-workspace-e-rotinas.md)
+- [Aula 6 — Parâmetros de LLM e laboratório de protótipos multimodais](aulas/oficina-06-parametros-e-prototipos.md)
 
 
 ---
 
 ## 🛠️ Ferramentas & Tecnologias Utilizadas
 
-* **Ferramentas trabalhadas:** Gemini App, Gemini Gems, Gemini Notebooks, Gemini Agenda (Agente), Google Workspace Studio e Google AI Studio.
-* **Aplicações práticas:** apoio à análise normativa, atendimento e triagem, redação de minutas, organização de agendas e acompanhamento de prazos em unidades universitárias.
+* **Ferramentas trabalhadas:** Gemini App, Gemini Gems, Gemini Notebooks, Gemini Agenda (Agente), Google Workspace Studio e Google AI Studio; Google Vids e Nano Banana 2 como explorações opcionais, conforme disponibilidade institucional.
+* **Aplicações práticas:** anonimização assistida, atas, e-mails e respostas, revisão gramatical, análise e resumo processual com referências, agrupamento temático, admissibilidade preliminar, acompanhamento de tarefas, fiscalização de contratos, previsão de insumos, inventário por visão computacional, triagem de notas fiscais e painéis de impacto acadêmico e orçamentário.
+* **Integridade acadêmica:** ferramentas de detecção de texto gerado por IA, incluindo Turnitin quando licenciado e autorizado, serão discutidas criticamente. Seus resultados são indícios sujeitos a erro, não determinam autoria e não substituem avaliação humana nem as regras institucionais.
 
 ---
 
