@@ -100,12 +100,12 @@
 
                 <!-- Header Actions -->
                 <div class="hidden sm:flex items-center gap-3">
-                    <button onclick="openEnrollmentModal()" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-semibold rounded-xl group bg-gradient-to-br from-cyan-500 via-indigo-500 to-emerald-500 hover:text-white text-white shadow-lg shadow-cyan-500/20 active:scale-95 transition-all">
+                    <a href="mailto:campus-a@unifei.edu.br" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-semibold rounded-xl group bg-gradient-to-br from-cyan-500 via-indigo-500 to-emerald-500 hover:text-white text-white shadow-lg shadow-cyan-500/20 active:scale-95 transition-all">
                         <span class="relative px-4 py-2.5 transition-all ease-in duration-75 bg-slate-900 rounded-[10px] group-hover:bg-opacity-0 flex items-center gap-2">
-                            <i class="fa-solid fa-graduation-cap text-cyan-400 group-hover:text-white transition-colors"></i>
-                            <span>Saiba Mais</span>
+                            <i class="fa-solid fa-envelope text-cyan-400 group-hover:text-white transition-colors"></i>
+                            <span>Contato</span>
                         </span>
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -125,10 +125,10 @@
             <a href="#stack" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Ferramentas</a>
             <a href="#governanca" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Governança & LGPD</a>
             <div class="pt-4 border-t border-slate-800">
-                <button onclick="toggleMobileMenu(); openEnrollmentModal();" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 font-semibold text-white text-center shadow-lg flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span>Informações</span>
-                </button>
+                <a href="mailto:campus-a@unifei.edu.br" onclick="toggleMobileMenu()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 font-semibold text-white text-center shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Contato</span>
+                </a>
             </div>
         </div>
     </header>
@@ -170,10 +170,10 @@
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <button onclick="openEnrollmentModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-emerald-500 text-white font-bold text-base shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 group">
-                            <span>Saiba Mais</span>
+                        <a href="mailto:campus-a@unifei.edu.br" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-emerald-500 text-white font-bold text-base shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 group">
+                            <span>Fale com a coordenação</span>
                             <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                        </button>
+                        </a>
                         <a href="#cronograma" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold text-base border border-slate-700/80 hover:border-slate-500 hover:bg-slate-800/80 transition-all flex items-center justify-center gap-2">
                             <i class="fa-regular fa-calendar-check text-cyan-400"></i>
                             <span>Ver Cronograma (Modelo I.O.A.)</span>
@@ -1042,12 +1042,12 @@
                         Pronto para transformar a gestão universitária com IA?
                     </h2>
                     <p class="text-slate-300 text-base max-w-2xl mx-auto mb-8">
-                        Junte-se à formação CAMPUS-A da UNIFEI. Explore ferramentas de IA para tarefas universitárias com proteção de dados, consulta a fontes e revisão humana.
+                        Conheça a formação CAMPUS-A da UNIFEI e explore ferramentas de IA para tarefas universitárias com proteção de dados, consulta a fontes e revisão humana.
                     </p>
-                    <button onclick="openEnrollmentModal()" class="px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-base shadow-xl shadow-cyan-500/20 active:scale-95 transition-all inline-flex items-center gap-3">
-                        <i class="fa-solid fa-graduation-cap text-lg"></i>
-                        <span>Inscrever-se no Programa</span>
-                    </button>
+                    <a href="mailto:campus-a@unifei.edu.br" class="px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-base shadow-xl shadow-cyan-500/20 active:scale-95 transition-all inline-flex items-center gap-3">
+                        <i class="fa-solid fa-envelope text-lg"></i>
+                        <span>Fale com a coordenação</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1116,54 +1116,6 @@
         </div>
     </footer>
 
-    <!-- Modal Form de Interesse/Inscrição -->
-    <div id="enrollmentModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md transition-opacity">
-        <div class="glass-panel w-full max-w-lg rounded-2xl border border-slate-700 p-6 sm:p-8 relative shadow-2xl">
-            <button onclick="closeEnrollmentModal()" class="absolute top-4 right-4 w-9 h-9 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-
-            <div class="mb-6">
-                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-950 text-cyan-400 border border-cyan-800">UNIFEI CAMPUS-A</span>
-                <h3 class="font-display text-2xl font-bold text-white mt-3">Interesse no Programa</h3>
-                <p class="text-slate-400 text-xs mt-1">Preencha seus dados institucionais para receber informações sobre as próximas turmas.</p>
-            </div>
-
-            <form id="interestForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Nome Completo</label>
-                    <input type="text" required placeholder="Ex: Profa. Maria Silva" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-200 text-sm focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">E-mail Institucional</label>
-                    <input type="email" required placeholder="usuario@unifei.edu.br" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-200 text-sm focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Vínculo Institucional</label>
-                    <select required class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-200 text-sm focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500">
-                        <option value="" disabled selected>Selecione seu vínculo</option>
-                        <option value="TAE">Técnico-Administrativo (TAE)</option>
-                        <option value="Docente">Docente</option>
-                        <option value="Discente">Discente (Graduação/Pós)</option>
-                        <option value="Gestor">Gestor / Coordenador</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 font-bold text-white text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 active:scale-98 transition-all mt-2">
-                    Aguardando Aprovação do Programa - Não clique.
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden glass-panel border border-emerald-500/40 p-4 rounded-xl shadow-2xl flex items-center gap-3 text-sm text-emerald-300">
-        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-        <span>Solicitação enviada com sucesso! Entraremos em contato via e-mail.</span>
-    </div>
-
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
@@ -1176,23 +1128,6 @@
             }
         }
 
-        function openEnrollmentModal() {
-            document.getElementById('enrollmentModal').classList.remove('hidden');
-        }
-
-        function closeEnrollmentModal() {
-            document.getElementById('enrollmentModal').classList.add('hidden');
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            closeEnrollmentModal();
-            const toast = document.getElementById('toast');
-            toast.classList.remove('hidden');
-            setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 4000);
-        }
     </script>
 </body>
 </html>
