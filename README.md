@@ -2,52 +2,47 @@
 
 [![Carga Horária](https://img.shields.io/badge/Carga_Hor%C3%A1ria-21_Horas_%28Mini--Curso%29-blue?style=for-the-badge)](https://github.com/)
 [![Conformidade LGPD](https://img.shields.io/badge/Conformidade-LGPD-emerald.svg?style=for-the-badge&logo=shield)](https://github.com/)
-[![Low-Code Stack](https://img.shields.io/badge/Stack-Gemini%20Gems%20%7C%20Gemini%20Notebooks%20%7C%20Antigravity-cyan.svg?style=for-the-badge&logo=diagram-next)](https://github.com/)
+[![Ferramentas](https://img.shields.io/badge/Ferramentas-Gemini%20%7C%20Workspace%20Studio%20%7C%20AI%20Studio-cyan.svg?style=for-the-badge&logo=diagram-next)](https://github.com/)
 
-> **CAMPUS-A** é um programa de capacitação teórico-prático desenvolvido para capacitar servidores técnicos administrativos, docentes, discentes na área de gestão e análise universitária para transformar a gestão de processos na universidade pública utilizando **Agentes Autônomos de IA**, **RAG (Retrieval-Augmented Generation)** ancorado em resoluções e normativas, e plataformas de automação low-code.
+> **CAMPUS-A** é um programa teórico-prático para servidores, docentes e equipes universitárias aplicarem ferramentas de IA em atividades administrativas. O curso combina proteção de dados, consulta a fontes, revisão humana e prototipagem de soluções para situações reais da universidade.
 
 ---
 
 ## 🎯 Objetivos do Programa
 
-1. **Mapear Processos Administrativos:** Identificar gargalos em tramitações (solicitações discentes, aprovações de crédito, emissão de pareceres, compras/licitações) e desenhar soluções autônomas de IA.
-2. **Construir Agentes RAG Normativos:** Indexar estatutos, regimentos internos e resoluções para consultas sem alucinações.
-3. **Orquestrar Multi-Agentes:** Conectar agentes triadores, pareceristas e notificadores via webhooks e REST APIs em plataformas no-code/low-code.
-4. **Assegurar Governança Pública & LGPD:** Garantir a proteção de dados sensíveis de discentes e servidores com total rastreabilidade e transparência algorítmica.
-5. **Aplicar o Framework A.G.E.N.T:** Metodologia estruturada para gerenciar a adoção cultural de IA nas reitorias, pró-reitorias e secretarias.
+1. **Usar IA com responsabilidade:** Reconhecer limites, proteger dados pessoais e aplicar revisão humana no uso de IA generativa no serviço público.
+2. **Aprimorar tarefas administrativas com o Gemini:** Criar instruções claras para resumir comunicações e preparar minutas, sempre verificando fatos e fontes.
+3. **Criar assistentes especializados:** Configurar e testar Gems para apoiar triagem e respostas a dúvidas recorrentes, com limites explícitos.
+4. **Consultar documentos e automatizar rotinas:** Usar Notebooks para análise fundamentada em fontes e explorar Agenda e Workspace Studio em tarefas de organização e acompanhamento.
+5. **Prototipar soluções aplicadas:** Experimentar no Google AI Studio e desenvolver um protótipo para um caso universitário, com controles e decisão final sob responsabilidade humana.
 
 ---
 
 ## 📅 Estrutura do Mini-Curso (21 Horas • 6 Encontros de 3h30min)
 
-Módulo 0: Letramento Digital e IA sem Mistérios (4h): O que é IA generativa, como os modelos "pensam", limites da tecnologia (alucinação), segurança básica e superação do receio do uso de IA no serviço público.
-
-Módulo 1: Prompts Básicos e Gemini Gems (4h): Estrutura fundamental de um comando (Papel, Contexto, Tarefa e Formato), criação e teste de Gems simples para tarefas cotidianas.
-
-Módulo 2: Análise de Documentos no Gemini Notebook (4h): Upload de arquivos PDF/SEI, realização de pesquisas simples, resumos de processos e checagem de fontes sem necessidade de configurações técnicas.
-
-Módulo 3: Introdução Visual ao Google Antigravity (4h): Abordagem 100% no-code sobre automação agêntica, focando na lógica de construção de fluxos e na delegação de tarefas operacionais.
-
-Módulo 4: LGPD e Anonimização Prática (4h): Exercícios visuais de higienização de textos, identificação de dados sensíveis e uso de ferramentas de máscara antes do envio de dados para as IAs.
-
-Módulo 5: Laboratório Prático de Aplicação (4h): Oficina do tipo "mão na massa", onde o servidor constrói uma solução para um problema real da sua própria secretaria sob supervisão do instrutor.
+1. **Dados sensíveis, LGPD e sanitização (3h30min):** Classificação e minimização de dados, reconhecimento de informações sensíveis e checklist para decidir o que não deve ser inserido em ferramentas de IA.
+2. **Gemini App e instruções eficazes (3h30min):** Construção e teste de prompts para resumir comunicações e elaborar minutas administrativas, com verificação humana dos fatos e do tom.
+3. **Gemini Gems: especialização em atividade (3h30min):** Especificação de instruções e limites para um assistente setorial e teste com dúvidas recorrentes ou triagem preliminar.
+4. **Gemini Notebooks e consulta a fontes (3h30min):** Análise de documentos e normas com referências às fontes, aplicada, por exemplo, à conferência de um termo de referência ou de um pedido acadêmico.
+5. **Gemini Agenda (Agente) e Google Workspace Studio (3h30min):** Desenho de rotinas de agenda, lembretes e acompanhamento de prazos, considerando integrações com Forms, Sheets, Agenda e Gmail.
+6. **Google AI Studio e laboratório final (3h30min):** Prototipagem e apresentação de uma solução para um caso universitário, como triagem de demandas, acompanhamento de prazos ou análise preliminar de documentos.
 
 
 ---
 
 ## 🛠️ Ferramentas & Tecnologias Utilizadas
 
-* **Plataformas Low-Code/No-Code:** Gemini, Gemini Gems, Gemini Notebook, Antigravity
-* **Modelos de Linguagem:** Google (Gemini)
+* **Ferramentas trabalhadas:** Gemini App, Gemini Gems, Gemini Notebooks, Gemini Agenda (Agente), Google Workspace Studio e Google AI Studio.
+* **Aplicações práticas:** apoio à análise normativa, atendimento e triagem, redação de minutas, organização de agendas e acompanhamento de prazos em unidades universitárias.
 
 ---
 
 ## ⚖️ Governança, Ética e LGPD Pública
 
-Todas as soluções desenvolvidas no programa **CAMPUS-A** seguem rigorosamente os princípios de:
+O curso apresenta e pratica princípios de uso responsável da IA, que devem ser aplicados conforme as políticas institucionais vigentes:
 * **Human-in-the-Loop (HITL):** Nenhum ato administrativo vinculado é deferido sem a assinatura/validação do servidor público responsável.
-* **Anonimização de Informações de Identificação Pessoal (IIP):** Filtros automáticos para mascaramento de CPF, matrículas e dados pessoais sensíveis antes do envio às APIs de IA.
-* **Auditabilidade de Logs:** Rastreabilidade completa dos prompts e respostas geradas pelos agentes para fins de controle interno e órgãos de fiscalização.
+* **Privacidade e LGPD:** Minimização e sanitização de dados pessoais antes do uso de ferramentas de IA; a sanitização não substitui a avaliação de risco nem as regras institucionais.
+* **Conferência e rastreabilidade:** Revisão das respostas e das fontes utilizadas, com registro do trabalho conforme as políticas institucionais de segurança e prestação de contas.
 
 ---
 

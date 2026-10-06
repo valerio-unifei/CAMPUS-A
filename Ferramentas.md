@@ -1,0 +1,7 @@
+- Dados Sensíveis, Sanitização LGPD
+- Gemini App
+- Gemini Agenda (Agente)
+- Gemini Gems (Especialização em Atividade)
+- Gemini Notebooks
+- Google Studio Workspace
+- Google AI Studio
