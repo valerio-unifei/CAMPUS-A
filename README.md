@@ -29,12 +29,12 @@
 
 ### Roteiros e exercícios por aula
 
-- [Aula 1 — LGPD, sanitização e integridade documental](aulas/oficina-01-lgpd-e-anonimizacao.md)
-- [Aula 2 — Engenharia de prompt e comunicação no serviço público](aulas/oficina-02-prompts-e-comunicacao-publica.md)
-- [Aula 3 — Gemini Gems para atas e rotinas setoriais](aulas/oficina-03-gems-e-atas.md)
-- [Aula 4 — Gemini Notebooks para análise documental e processual](aulas/oficina-04-notebooks-e-processos.md)
-- [Aula 5 — Workspace Studio, e-mails e acompanhamento de rotinas](aulas/oficina-05-workspace-e-rotinas.md)
-- [Aula 6 — Parâmetros de LLM e laboratório de protótipos multimodais](aulas/oficina-06-parametros-e-prototipos.md)
+- [Aula 1 — Página](aulas/aula-01.html) · [Roteiro completo](aulas/oficina-01-lgpd-e-anonimizacao.md)
+- [Aula 2 — Página](aulas/aula-02.html) · [Roteiro completo](aulas/oficina-02-prompts-e-comunicacao-publica.md)
+- [Aula 3 — Página](aulas/aula-03.html) · [Roteiro completo](aulas/oficina-03-gems-e-atas.md)
+- [Aula 4 — Página](aulas/aula-04.html) · [Roteiro completo](aulas/oficina-04-notebooks-e-processos.md)
+- [Aula 5 — Página](aulas/aula-05.html) · [Roteiro completo](aulas/oficina-05-workspace-e-rotinas.md)
+- [Aula 6 — Página](aulas/aula-06.html) · [Roteiro completo](aulas/oficina-06-parametros-e-prototipos.md)
 
 
 ---

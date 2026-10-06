@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Oficina de Gemini Gems para geração e revisão de atas padronizadas.">
+    <title>Aula 3 — Gems e geração de atas | CAMPUS-A</title>
+    <style>
+        :root { color-scheme: dark; --bg: #08111f; --panel: #111d2d; --line: #26364b; --text: #e5edf7; --muted: #aab8ca; --accent: #51c5e8; --green: #65d6a0; } * { box-sizing: border-box; } body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 Inter, "Segoe UI", sans-serif; } a { color: var(--accent); } header { border-bottom: 1px solid var(--line); background: #0c1726; } .top, main, footer { width: min(1080px, calc(100% - 2rem)); margin: auto; } .top { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 1rem 0; } .brand { color: var(--text); font-weight: 800; text-decoration: none; letter-spacing: .04em; } nav { display: flex; flex-wrap: wrap; gap: 1rem; } nav a, .back { text-decoration: none; } main { padding: 2.5rem 0 4rem; } .eyebrow { color: var(--accent); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; } h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: .35rem 0 .6rem; } h2 { font-size: 1.45rem; margin: 0 0 .7rem; } p { color: var(--muted); } .lead { max-width: 800px; font-size: 1.1rem; } .meta { display: flex; flex-wrap: wrap; gap: .65rem; margin: 1.2rem 0 2rem; } .pill { border: 1px solid var(--line); border-radius: 99px; padding: .3rem .8rem; color: var(--text); background: #101d2d; } section, .callout { margin: 1.4rem 0; padding: 1.4rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--panel); } ul { color: var(--muted); padding-left: 1.4rem; } table { border-collapse: collapse; width: 100%; } th, td { text-align: left; vertical-align: top; padding: .8rem; border-bottom: 1px solid var(--line); } th { color: var(--accent); font-size: .85rem; } td:first-child { min-width: 120px; white-space: nowrap; color: var(--text); font-weight: 700; } .callout { border-color: #24734e; color: var(--muted); } .callout strong { color: var(--green); } .links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; } footer { color: var(--muted); border-top: 1px solid var(--line); padding: 1.5rem 0 2rem; font-size: .9rem; } @media (max-width: 650px) { .top { align-items: flex-start; flex-direction: column; } section { padding: 1rem; } table, tbody, tr, td { display: block; } thead { display: none; } tr { padding: .5rem 0; border-bottom: 1px solid var(--line); } td { border: 0; padding: .25rem 0; } td:first-child { min-width: 0; } }
+    </style>
+</head>
+<body>
+    <header><div class="top"><a class="brand" href="../index.html">CAMPUS-A · UNIFEI</a><nav aria-label="Navegação da aula"><a href="../index.html#cronograma">Cronograma</a><a href="oficina-03-gems-e-atas.md">Roteiro completo</a></nav></div></header>
+    <main>
+        <a class="back" href="../index.html#cronograma">← Voltar ao curso</a>
+        <p class="eyebrow">Aula 3 · Oficina prática</p><h1>Gemini Gems para atas e rotinas setoriais</h1>
+        <p class="lead">Projete um assistente especializado que transforme transcrições fictícias em minutas de atas padronizadas e encaminhamentos revisáveis.</p>
+        <div class="meta"><span class="pill">3h30min · 210 minutos</span><span class="pill">Dois intervalos</span><span class="pill">Oficina em grupos</span></div>
+        <section><h2>Objetivos</h2><ul><li>Projetar uma Gem para apoiar atas padronizadas.</li><li>Especificar instruções, formato, evidência e comportamento diante de lacunas.</li><li>Comparar prompts avulsos e Gems, além de consultar padrões no Notebook.</li><li>Validar decisões, responsáveis e prazos com uma pessoa.</li></ul></section>
+        <section><h2>Roteiro e exercícios</h2><table><thead><tr><th>Horário</th><th>Atividade e produto</th></tr></thead><tbody>
+            <tr><td>00:00–00:15 · 15 min</td><td>Apresentação do produto final e regras para uso de materiais fictícios.</td></tr>
+            <tr><td>00:15–00:35 · 20 min</td><td>Demonstração da estrutura de uma ata, distinção entre falas, decisões e encaminhamentos; instruções, escopo e tratamento de lacunas.</td></tr>
+            <tr><td>00:35–01:05 · 30 min</td><td><strong>Exercício 1 — Especificação:</strong> definir objetivo, entradas, formato da ata, regras de evidência, dados ausentes, conteúdo fora do escopo e revisão obrigatória.</td></tr>
+            <tr><td>01:05–01:15 · 10 min</td><td>Intervalo.</td></tr>
+            <tr><td>01:15–01:55 · 40 min</td><td><strong>Exercício 2 — Implementação:</strong> configurar Gem e gerar minuta de transcrição fictícia com pauta, participantes informados, síntese, decisões, responsáveis e prazos. Marcar campos não inferíveis.</td></tr>
+            <tr><td>01:55–02:05 · 10 min</td><td>Intervalo.</td></tr>
+            <tr><td>02:05–02:35 · 30 min</td><td><strong>Exercício 3 — Engenharia de prompt e testes:</strong> comparar prompt avulso e Gem; testar transcrição incompleta, divergência e solicitação para inventar decisão. Registrar diferenças e incertezas.</td></tr>
+            <tr><td>02:35–03:00 · 25 min</td><td><strong>Exercício 4 — Consulta com Notebook:</strong> verificar campos contra modelo fictício de ata; registrar o que está confirmado e o que precisa ser perguntado.</td></tr>
+            <tr><td>03:00–03:20 · 20 min</td><td><strong>Exercício 5 — Tarefas:</strong> transformar decisões confirmadas em lista de tarefas com responsável, prazo, estado e próxima ação; simular acompanhamento.</td></tr>
+            <tr><td>03:20–03:30 · 10 min</td><td>Apresentação e entrega dos artefatos.</td></tr>
+        </tbody></table></section>
+        <aside class="callout"><strong>Preparação:</strong> fornecer transcrição, modelo de ata e padrão fictícios. Incluir ambiguidades e trechos inaudíveis. A minuta da Gem não é ata oficial até revisão e validação por pessoa responsável.</aside>
+        <p><strong>Entregáveis:</strong> instruções da Gem, modelo de saída, minuta identificada como rascunho, matriz de testes e lista de encaminhamentos. Avaliar fidelidade, ausência de decisões inventadas e sinalização de lacunas.</p>
+        <div class="links"><a href="aula-02.html">← Aula anterior</a><a href="oficina-03-gems-e-atas.md">Roteiro completo em Markdown</a><a href="aula-04.html">Próxima aula →</a></div>
+    </main><footer>CAMPUS-A · Material didático. Aplicar sempre as políticas institucionais vigentes.</footer>
+</body>
+</html>
