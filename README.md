@@ -61,4 +61,4 @@ O curso apresenta e pratica princípios de uso responsável da IA, que devem ser
 Este projeto é disponibilizado sob a licença de propriedade intelectual exclusiva da Universidade Federal de Itajubá, amparado pela Lei Federal nº 9.610/1998 (Lei de Direitos Autorais) e pela Lei Federal nº 9.609/1998 (Lei de Proteção da Propriedade Intelectual de Programa de Computador).
 
 * **Coordenação do Programa:** UNIFEI IESTI
-* **Contato Institucional:** `campus-a@unifei.edu.br`
+* **Contato Institucional:** `valerio@unifei.edu.br`
