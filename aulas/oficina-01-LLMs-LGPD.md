@@ -1,14 +1,17 @@
-# Aula 1 — LGPD, sanitização e integridade documental
+# Aula 1 — Introdução LLM e Sanitização LGPD
 
-**Duração total:** 3h30min (210 minutos, incluindo dois intervalos)
-**Formato:** oficina prática, individual ou em grupos de 3 a 4 participantes.
+**Duração total:** 3h30min (210 minutos, incluindo um intervalo de 20 minutos)
+**Formato:** oficina prática individual.
 
 ## Objetivos
 
-- Explicar, em nível introdutório, como uma LLM baseada em Transformer converte texto em tokens e gera uma sequência prevendo um token por vez.
-- Identificar dados pessoais, sensíveis, sigilosos e desnecessários em documentos administrativos.
-- Preparar uma versão minimizada e sanitizada para análise assistida por IA.
-- Conferir se a sanitização preservou o sentido necessário à tarefa e reconhecer quando não se deve usar uma ferramenta externa.
+- Apresentar de forma básica uma LLM baseada em redes transformadoras;
+- Realizar a transformação de texto para tokens e explicar o processo de conversão;
+- Explicar LLM em nuvem externa e local, vantagens e problemas;
+- Mostrar formas de converter documentos com dados pessoais ou sensíveis antes de fornecer a uma LLM em nuvem externa;
+- Identificar dados pessoais, sensíveis, sigilosos e desnecessários em documentos administrativos;
+- Sanitizar documentos administrativos respeitando a LGPD;
+- Conferir se a sanitização preservou o sentido necessário à tarefa e reconhecer quando não se deve usar uma ferramenta externa;
 - Discutir com cautela as limitações de detectores de texto gerado por IA, incluindo Turnitin quando licenciado e autorizado.
 
 ## Preparação
@@ -16,6 +19,22 @@
 O instrutor fornece documentos inteiramente fictícios (por exemplo, ata, requerimento ou processo curto) contendo identificadores inventados. Não usar processos reais, dados pessoais de estudantes/servidores ou documentos restritos. Confirmar previamente quais ferramentas e ambientes foram autorizados institucionalmente. Para a demonstração conceitual, abrir o [Transformer Explainer do Polo Club](https://poloclub.github.io/transformer-explainer/); se não houver conexão, usar a explicação e o mapeamento de etapas abaixo sem inserir dados.
 
 ## Roteiro e exercícios
+
+1. **Abertura**: Apresentação dos professores e currículo.
+1. **Introdução as LLMs**: Explicar o processo de funcionamento das LLMs com exemplo didático:
+   - [Rede LLM Explicada](https://poloclub.github.io/transformer-explainer/)
+1. **Exercício 1**: Alteração de ajustes na LLM.
+   - [Formulário do Exercício 1](https://docs.google.com/forms/d/e/1FAIpQLSdKGRb2H4So_sdGeBXV0MFVBK3LfTs5EgksxXgURg1VNFdEYQ/viewform?usp=header)
+1. **Tokenização**: Como funciona o processo de *Tokenização* de palavras
+   - [Tokenizador Didático da UNIFEI](https://valerio-unifei.github.io/Aprenda-LLM/)
+1. **Exercício 2**: Gerando tokenizações.
+   - [Formulário do Exercício 2](https://docs.google.com/forms/d/e/1FAIpQLScEpvQebEIdQfqxJYpLOXOLZ7yAK-nWuVOGoLcCJBcF7Mx9Zw/viewform?usp=header)
+1. ```Intervalo 20 minutos```
+1. **LGPD**
+
+Exercício: Tokenização como funciona.
+Anonimização LGPD: 
+
 
 | Horário | Duração | Atividade |
 |---|---:|---|
@@ -30,7 +49,6 @@ O instrutor fornece documentos inteiramente fictícios (por exemplo, ata, requer
 | 03:00–03:20 | 20 min | Discussão de decisões: quando prosseguir, sanitizar, usar apenas ambiente autorizado ou interromper e consultar o responsável institucional. |
 | 03:20–03:30 | 10 min | Síntese, avaliação rápida e entrega dos artefatos. |
 
-**Conferência de carga horária:** 15 + 20 + 30 + 10 + 40 + 10 + 30 + 25 + 20 + 10 = **210 minutos**.
 
 ## Conteúdo didático — visão introdutória de uma LLM
 
